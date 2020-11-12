@@ -7,6 +7,4 @@ The game is coded in C++.
 
 ## Dependencies
 
-![SFML logo](https://www.sfml-dev.org/images/logo.png)
-
-[SFML](https://www.sfml-dev.org/index.php)
+[<img src="https://www.sfml-dev.org/images/logo.png">](https://www.sfml-dev.org/index.php)
