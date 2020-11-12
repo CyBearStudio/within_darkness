@@ -6,5 +6,52 @@ This is the technical documentation for developers. One can find here every nece
 
 ---
 
-include::base/main.adoc[]
-include::base/logger.adoc[]
+== Program entry
+
+The main function:
+
+* creates a new *Logger* object
+* creates a new *Game* object with the new *Logger* object
+* intializes the Game
+* runs the Game
+
+.main function
+[source, C++]
+----
+int main()
+{
+    logger = new Logger();
+    game = new Game(logger);
+
+    game.init();
+    game.run();
+}
+----
+
+
+
+== Logger class
+
+The logger class is responsible for logging the console output into a txt file.
+
+* The log(String str) method append a new line to the log file and displays it in the console
+* The log file is latestlog.txt at the root of the program
+
+.Logger class
+[source, C++]
+----
+class Logger
+{
+    public:
+        void log(String str);
+    
+    private:
+        FileType logfile;
+}
+
+void Logger::log(String str)
+{
+    logfile.append(str);
+    std::cout<<str<<std::endl;
+}
+----
