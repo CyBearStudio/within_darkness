@@ -1,0 +1,25 @@
+== Logger class
+
+The logger class is responsible for logging the console output into a txt file.
+
+* The log(String str) method append a new line to the log file and displays it in the console
+* The log file is latestlog.txt at the root of the program
+
+.Logger class
+[source, C++]
+----
+class Logger
+{
+    public:
+        void log(String str);
+    
+    private:
+        FileType logfile;
+}
+
+void Logger::log(String str)
+{
+    logfile.append(str);
+    std::cout<<str<<std::endl;
+}
+----

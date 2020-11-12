@@ -1,0 +1,10 @@
+:imagedir: img/
+
+= Documentation for developers
+
+This is the technical documentation for developers. One can find here every necessary info on the code that has been written and the one to write.
+
+---
+
+include::base/main.adoc[]
+include::base/logger.adoc[]
