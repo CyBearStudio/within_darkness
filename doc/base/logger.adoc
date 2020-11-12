@@ -10,12 +10,12 @@ The logger class is responsible for logging the console output into a txt file.
 ----
 class Logger
 {
-    public:
-        void log(String str);
+public:
+    void log(String str);
     
-    private:
-        FileType logfile;
-}
+private:
+    FileType logfile;
+};
 
 void Logger::log(String str)
 {

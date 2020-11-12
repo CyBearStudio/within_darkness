@@ -1,0 +1,31 @@
+== Game class
+
+This is the master class of the game.
+
+It is responsible of:
+
+* initializing the game by loading user settings
+* handling the game loop
+* handling the different screens
+* passing the inputs
+* updating the screens
+* rendering the screens
+
+.Game class
+[source, C++]
+----
+class Game
+{
+public:
+    Game();
+    void run();
+
+private:
+    void processEvents();
+    void update();
+    void render();
+
+private:
+    sf::RenderWindow mWindow;
+};
+----
