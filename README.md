@@ -1,12 +1,11 @@
-:imagedir: img/
+# Within Darkness
 
-= Within Darkness
-
-image::panel.png[]
+![Panel](img/panel.png)
 
 _Within Darkness_ is a 2d Action RPG and Shooter game playable in solo or co-op.
 The game is coded in C++.
 
-== Dependencies
+## Dependencies
 
-image::https://www.sfml-dev.org/images/logo.png[SFML logo, link=https://www.sfml-dev.org/index.php]
+![SFML logo](https://www.sfml-dev.org/images/logo.png)
+[SFML](https://www.sfml-dev.org/index.php)
