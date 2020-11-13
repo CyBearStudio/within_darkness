@@ -4,7 +4,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "Within Darkness version "+PROJECT_VERSION_MAJOR+"."+PROJECT_VERSION_MINOR+"."+PROJECT_VERSION_PATCH);
+    sf::RenderWindow window(sf::VideoMode(200, 200), "Within Darkness version "+std::to_string(PROJECT_VERSION_MAJOR)+"."+std::to_string(PROJECT_VERSION_MINOR)+"."+std::to_string(PROJECT_VERSION_PATCH));
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
