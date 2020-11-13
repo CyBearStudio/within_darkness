@@ -61,13 +61,12 @@ void Logger::log(String str)
 
 
 == Game class
-link:base/game.adoc[game.adoc]
 
 This is the master class of the game.
 
 It is responsible of:
 
-* initializing the game by loading user settings
+* initializing the game by loading user settings (returns 1 if something went wrong)
 * handling the game loop
 * handling the different screens
 * passing the inputs
@@ -81,6 +80,7 @@ class Game
 {
 public:
     Game();
+    int init();
     void run();
 
 private:
