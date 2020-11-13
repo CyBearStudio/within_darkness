@@ -2,7 +2,7 @@
 
 The logger class is responsible for logging the console output into a txt file.
 
-* The log(String str) method append a new line to the log file and displays it in the console
+* The log(String str) method appends a new line to the log file and displays it in the console
 * The log file is latestlog.txt at the root of the program
 
 .Logger class
