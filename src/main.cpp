@@ -1,9 +1,10 @@
 
 #include <SFML/Graphics.hpp>
+#include <Version.h>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(200, 200), "Within Darkness version "+PROJECT_VERSION_MAJOR+"."+PROJECT_VERSION_MINOR+"."+PROJECT_VERSION_PATCH);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
