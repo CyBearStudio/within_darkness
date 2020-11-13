@@ -1,6 +1,6 @@
 
 #include <SFML/Graphics.hpp>
-#include <Version.h>
+#include "Version.h"
 
 int main()
 {

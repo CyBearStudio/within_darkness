@@ -430,3 +430,11 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,visualstudio,visualstudiocode,kdevelop4,codeblocks,cmake
+
+# Build folders
+build/
+bin/
+out/
+
+# Others
+include/Version.h

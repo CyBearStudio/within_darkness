@@ -32,3 +32,6 @@ add_executable(WithinDarkness
 
 # link SFML
 target_link_libraries(WithinDarkness sfml-graphics)
+
+# required to make the version system work
+target_include_directories(WithinDarkness PUBLIC "${PROJECT_SOURCE_DIR}/include")
