@@ -9,7 +9,7 @@ The game is coded in C++.
 
 [<img src="https://www.sfml-dev.org/images/logo.png">](https://www.sfml-dev.org/index.php)
 
-## Repository architecture
+## Folder structure
 
 __doc/__ contains the technical documentation for developers
 
