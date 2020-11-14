@@ -2,7 +2,7 @@
 #define GAME_H_INCLUDED
 
 #include <SFML/Graphics.hpp>
-#include "Version.h"
+#include "Logger.h"
 
 
 class Game
@@ -19,6 +19,7 @@ private:
 
 private:
 	sf::RenderWindow mWindow;
+	Logger mLogger;
 };
 
 
