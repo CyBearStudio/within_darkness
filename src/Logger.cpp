@@ -8,6 +8,6 @@ Logger::Logger(std::string lf)
 
 void Logger::log(std::string str)
 {
-    logfile << str << '\n' ; // line break
-    std::cout<<str<<std::endl; // line break
+    logfile << str << std::endl; // line break
+    std::cout << str << std::endl; // line break
 }
