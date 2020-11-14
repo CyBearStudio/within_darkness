@@ -80,7 +80,7 @@ void Logger::log(String str)
 
 == Game
 
-link:base/game.adoc[game.adoc]
+//link:base/game.adoc[game.adoc]
 
 === Files:
 
@@ -92,7 +92,7 @@ link:base/game.adoc[game.adoc]
 
 * is the master class of the game.
 
-* initializes the game by loading user settings (returns 1 if something went wrong)
+* initializes the game by loading user settings
 
 * handles the game loop
 
@@ -111,7 +111,7 @@ class Game
 {
 public:
     Game();
-    int init();
+    void init();
     void run();
 
 private:

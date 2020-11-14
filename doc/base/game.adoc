@@ -12,7 +12,7 @@
 
 * is the master class of the game.
 
-* initializes the game by loading user settings (returns 1 if something went wrong)
+* initializes the game by loading user settings
 
 * handles the game loop
 
@@ -31,7 +31,7 @@ class Game
 {
 public:
     Game();
-    int init();
+    void init();
     void run();
 
 private:
