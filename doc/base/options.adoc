@@ -1,0 +1,36 @@
+== Options
+
+//link:base/options.adoc[options.adoc]
+
+=== Files:
+
+* link:../include/Options.h[include/Options.h]
+
+* link:../src/Options.cpp[src/Options.cpp]
+
+=== The Options class:
+
+* stores the options variables
+
+* creates default settings on construction
+
+* can be linked to a file with load()
+
+* can store settings to the link file with save()
+
+.Options class
+[source, C++]
+----
+class Options
+{
+public:
+    Options();
+    void load();
+    void save();
+
+private:
+    Type1 mOption1;
+    Type2 mOption2;
+    ...
+}
+----
