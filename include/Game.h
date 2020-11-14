@@ -1,6 +1,9 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
+#include <SFML/Graphics.hpp>
+#include "Version.h"
+
 
 class Game
 {
