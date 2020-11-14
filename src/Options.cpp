@@ -1,10 +1,10 @@
 #include "Options.h"
-#include <SFML/VideoMode.hpp>
+#include <SFML/Window.hpp>
 
 Options::Options()
 {
 	fullscreen = true;
-	VideoMode res = VideoMode::getDesktopMode();
+	sf::VideoMode res = sf::VideoMode::getDesktopMode();
 	resX = res.width;
 	resY = res.height;
 }
@@ -17,33 +17,30 @@ void Options::load(std::string lf)
 	std::string line;
 	while (optionsFile.good())
 	{
-		optionsFile.getline(line);
+		std::getline(optionsFile, line);
 
 		size_t pos = line.find(":");
 		std::string option = line.substr(0, pos);
 		std::string value = line.substr(pos + 1, line.size());
 
-		switch (option)
+		if (option == "full")
 		{
-		case "full":
-			switch (value)
+			if (value == "true")
 			{
-			case "true":
 				fullscreen = true;
-				break;
-			case "false":
-				fullscreen = false;
-				break;
-			default:
-				break;
 			}
-			break;
-		case "resX":
-			resX = std::atoi(value);
-			break;
-		case "resY":
-			resY = std::atoi(value);
-			break;
+			else if (value == "false")
+			{
+				fullscreen = false;
+			}
+		}
+		else if (option == "resX")
+		{
+			resX = std::stoi(value);
+		}
+		else if (option == "resY")
+		{
+			resY = std::stoi(value);
 		}
 	}
 
@@ -54,7 +51,7 @@ void Options::save()
 {
 	optionsFile.open(fileName, std::fstream::out | std::fstream::trunc);
 
-	optionsFile << "fullscreen:";
+	optionsFile << "full:";
 	if (fullscreen)
 	{
 		optionsFile << "true";

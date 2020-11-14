@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Logger.h"
+#include "Options.h"
 
 
 class Game
@@ -20,6 +21,8 @@ private:
 private:
 	sf::RenderWindow mWindow;
 	Logger mLogger;
+	Options mOptions;
+	std::string version;
 };
 
 
