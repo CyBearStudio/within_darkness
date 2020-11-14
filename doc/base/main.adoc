@@ -16,7 +16,7 @@
 
 * runs the Game
 
-.Main function
+.main function
 [source, C++]
 ----
 int main()

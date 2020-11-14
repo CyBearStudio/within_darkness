@@ -10,9 +10,11 @@ This is the technical documentation for developers. One can find here every nece
 
 * [ ] main function
 
-* [x] logger class
+* [x] Logger class
 
-* [ ] game class
+* [ ] Game class
+
+* [ ] Options class
 
 
 
@@ -34,7 +36,7 @@ link:base/main.adoc[main.adoc]
 
 * runs the Game
 
-.Main function
+.main function
 [source, C++]
 ----
 int main()
@@ -51,7 +53,7 @@ int main()
 
 == Logger
 
-link:base/logger.adoc[logger.adoc]
+//link:base/logger.adoc[logger.adoc]
 
 === Files:
 
@@ -59,7 +61,7 @@ link:base/logger.adoc[logger.adoc]
 
 * link:../src/Logger.cpp[src/Logger.cpp]
 
-=== The logger class:
+=== The Logger class:
 
 * is responsible for logging the console output into a txt file
 
@@ -98,7 +100,7 @@ void Logger::log(String str)
 
 * link:../src/Game.cpp[src/Game.cpp]
 
-=== The game class:
+=== The Game class:
 
 * is the master class of the game.
 
