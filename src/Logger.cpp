@@ -3,7 +3,7 @@
 
 Logger::Logger(std::string lf)
 {
-    logfile.open(lf, std::fstream::in | std::fstream::out | std::fstream::trunc); // file is automatically closed when object is destructed
+    logfile.open(lf, std::fstream::out | std::fstream::trunc); // file is automatically closed when object is destructed
 }
 
 void Logger::log(std::string str)
