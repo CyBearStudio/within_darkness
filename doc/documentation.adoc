@@ -6,6 +6,16 @@ This is the technical documentation for developers. One can find here every nece
 
 ---
 
+== Task list
+
+* [ ] main function
+
+* [x] logger class
+
+* [ ] game class
+
+
+
 == Program entry
 
 link:base/main.adoc[main.adoc]
