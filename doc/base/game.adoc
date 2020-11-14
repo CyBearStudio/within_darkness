@@ -1,15 +1,28 @@
-== Game class
+== Game
 
-This is the master class of the game.
+//link:base/game.adoc[game.adoc]
 
-It is responsible of:
+=== Files:
 
-* initializing the game by loading user settings (returns 1 if something went wrong)
-* handling the game loop
-* handling the different screens
-* passing the inputs
-* updating the screens
-* rendering the screens
+* link:../include/game.h[include/game.h]
+
+* link:../src/game.cpp[src/game.cpp]
+
+=== The game class:
+
+* is the master class of the game.
+
+* initializes the game by loading user settings (returns 1 if something went wrong)
+
+* handles the game loop
+
+* handles the different screens
+
+* passes the inputs
+
+* updates the screens
+
+* renders the screens
 
 .Game class
 [source, C++]

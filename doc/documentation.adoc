@@ -7,13 +7,21 @@ This is the technical documentation for developers. One can find here every nece
 ---
 
 == Program entry
+
 link:base/main.adoc[main.adoc]
 
-The main function:
+=== Files:
+
+* link:../src/main.cpp[src/main.cpp]
+
+=== The main function:
 
 * creates a new *Logger* object
+
 * creates a new *Game* object with the new *Logger* object
+
 * intializes the Game
+
 * runs the Game
 
 .main function
@@ -31,13 +39,23 @@ int main()
 
 
 
-== Logger class
+== Logger
+
 link:base/logger.adoc[logger.adoc]
 
-The logger class is responsible for logging the console output into a txt file.
+=== Files:
 
-* The log(String str) method append a new line to the log file and displays it in the console
-* The log file is latestlog.txt at the root of the program
+* link:../include/logger.h[include/logger.h]
+
+* link:../src/logger.cpp[src/logger.cpp]
+
+=== The logger class:
+
+* is responsible for logging the console output into a txt file
+
+* the log(String str) method append a new line to the log file and displays it in the console
+
+* the log file is latestlog.txt at the root of the program
 
 .Logger class
 [source, C++]
@@ -60,18 +78,31 @@ void Logger::log(String str)
 
 
 
-== Game class
+== Game
 
-This is the master class of the game.
+link:base/game.adoc[game.adoc]
 
-It is responsible of:
+=== Files:
 
-* initializing the game by loading user settings (returns 1 if something went wrong)
-* handling the game loop
-* handling the different screens
-* passing the inputs
-* updating the screens
-* rendering the screens
+* link:../include/game.h[include/game.h]
+
+* link:../src/game.cpp[src/game.cpp]
+
+=== The game class:
+
+* is the master class of the game.
+
+* initializes the game by loading user settings (returns 1 if something went wrong)
+
+* handles the game loop
+
+* handles the different screens
+
+* passes the inputs
+
+* updates the screens
+
+* renders the screens
 
 .Game class
 [source, C++]

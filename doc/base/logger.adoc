@@ -1,9 +1,20 @@
-== Logger class
+== Logger
 
-The logger class is responsible for logging the console output into a txt file.
+//link:base/logger.adoc[logger.adoc]
 
-* The log(String str) method appends a new line to the log file and displays it in the console
-* The log file is latestlog.txt at the root of the program
+=== Files:
+
+* link:../include/logger.h[include/logger.h]
+
+* link:../src/logger.cpp[src/logger.cpp]
+
+=== The logger class:
+
+* is responsible for logging the console output into a txt file
+
+* the log(String str) method append a new line to the log file and displays it in the console
+
+* the log file is latestlog.txt at the root of the program
 
 .Logger class
 [source, C++]

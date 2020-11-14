@@ -1,10 +1,19 @@
 == Program entry
 
-The main function:
+//link:base/main.adoc[main.adoc]
+
+=== Files:
+
+* link:../src/main.cpp[src/main.cpp]
+
+=== The main function:
 
 * creates a new *Logger* object
+
 * creates a new *Game* object with the new *Logger* object
+
 * intializes the Game
+
 * runs the Game
 
 .main function
