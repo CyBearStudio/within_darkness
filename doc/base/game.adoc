@@ -8,7 +8,7 @@
 
 * link:../src/Game.cpp[src/Game.cpp]
 
-=== The game class:
+=== The Game class:
 
 * is the master class of the game.
 
