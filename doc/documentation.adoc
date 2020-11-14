@@ -24,7 +24,7 @@ link:base/main.adoc[main.adoc]
 
 * runs the Game
 
-.main function
+.Main function
 [source, C++]
 ----
 int main()
