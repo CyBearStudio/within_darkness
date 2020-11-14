@@ -55,9 +55,9 @@ link:base/logger.adoc[logger.adoc]
 
 === Files:
 
-* link:../include/logger.h[include/logger.h]
+* link:../include/Logger.h[include/Logger.h]
 
-* link:../src/logger.cpp[src/logger.cpp]
+* link:../src/Logger.cpp[src/Logger.cpp]
 
 === The logger class:
 
@@ -94,9 +94,9 @@ void Logger::log(String str)
 
 === Files:
 
-* link:../include/game.h[include/game.h]
+* link:../include/Game.h[include/Game.h]
 
-* link:../src/game.cpp[src/game.cpp]
+* link:../src/Game.cpp[src/Game.cpp]
 
 === The game class:
 
