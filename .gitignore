@@ -438,3 +438,6 @@ out/
 
 # Others
 include/Version.h
+
+#Visual Studio CMake config files
+CMakeSettings.json
