@@ -4,9 +4,9 @@
 
 === Files:
 
-* link:../include/logger.h[include/logger.h]
+* link:../include/Logger.h[include/Logger.h]
 
-* link:../src/logger.cpp[src/logger.cpp]
+* link:../src/Logger.cpp[src/Logger.cpp]
 
 === The logger class:
 
