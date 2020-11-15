@@ -4,6 +4,7 @@
 
 Game::Game() : mLogger("latestlog.txt"), mOptions()
 {
+    // storing version number for later use
 	version = std::to_string(PROJECT_VERSION_MAJOR) + "." + std::to_string(PROJECT_VERSION_MINOR) + "." + std::to_string(PROJECT_VERSION_PATCH);
 }
 
@@ -15,6 +16,7 @@ void Game::init()
 
 	mLogger.log("Loading splash screen ...");
     
+    // creating splash screen
 	mWindow.create(sf::VideoMode(640, 480), "Within Darkness " + version, sf::Style::None);
 	sf::VideoMode dMode = sf::VideoMode::getDesktopMode();
 	mWindow.setPosition(sf::Vector2i((dMode.width / 2) - 320, (dMode.height / 2) - 240));
@@ -37,6 +39,8 @@ void Game::init()
 	}
 	sf::Sprite splashSprite;
 	splashSprite.setTexture(splashTexture);
+
+    // rendering splash screen
 	mWindow.draw(splashSprite);
     mWindow.draw(versionText);
 	mWindow.display();
@@ -45,22 +49,26 @@ void Game::init()
     
     mLogger.log("Loading options ...");
     
+    // loading options from file
     mOptions.load("options.txt");
     
     mLogger.log("Loading options done");
     
     mLogger.log("Saving options ...");
     
+    // saving options to complete the file
     mOptions.save();
     
     mLogger.log("Saving options done");
 
+    // leaving splash screen for 2 seconds for style
 	sf::sleep(sf::seconds(2.f));
     
     mLogger.log("Lunching game ...");
     
     mLogger.log("Loading start screen ...");
     
+    // re-creating the main window to display game
     mWindow.create(mOptions.getVideoMode(), "Within Darkness " + version, mOptions.getStyle());
     sf::Texture studioTexture;
     if (!studioTexture.loadFromFile("res/studiologo.png"))
@@ -79,6 +87,7 @@ void Game::init()
     
     mLogger.log("Loading start screen done");
     
+    // rendering first game frame
     mWindow.clear(sf::Color(30, 30, 30));
     mWindow.draw(studioSprite);
     mWindow.display();
@@ -89,6 +98,7 @@ void Game::init()
     sf::Time elapsedTime;
     mClock.restart();
     
+    // main game loop: will be in run() next patch
     while (startScreen)
     {
         sf::Event event;
@@ -104,10 +114,12 @@ void Game::init()
             }
         }
         
+        // calculating frame rate
         elapsedTime = mClock.restart();
         float fps = 1 / elapsedTime.asSeconds();
         statText.setString("version " + version + "; fps: " + std::to_string(int(fps)));
         
+        // rendering start screen
         mWindow.clear(sf::Color(30, 30, 30));
         mWindow.draw(studioSprite);
         mWindow.draw(statText);

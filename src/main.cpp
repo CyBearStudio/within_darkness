@@ -5,10 +5,10 @@
 
 int main()
 {
-    Game game;
+    Game game; // creating a new game object
 
-    game.init();
-    game.run();
+    game.init(); // initializing the game
+    game.run(); // running the game
 
     return 0;
 }

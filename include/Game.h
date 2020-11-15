@@ -10,21 +10,21 @@ class Game
 {
 public:
 	Game();
-	void init();
-	void run();
+	void init(); // initializing
+	void run(); // main game loop
 
 private:
-	void processEvents();
-	void update();
-	void render();
+	void processEvents(); // passing events to the right screen
+	void update(); // updating the screens
+	void render(); // rendering the screens
 
 private:
-	sf::RenderWindow mWindow;
-	Logger mLogger;
-	Options mOptions;
-	std::string version;
-    sf::Font mFont;
-    sf::Clock mClock;
+	sf::RenderWindow mWindow; // the main window
+	Logger mLogger; // logger object to write in log file and console
+	Options mOptions; // options object to handle game settings
+	std::string version; // version number stored in string for rendering conveniency
+    sf::Font mFont; // the game font, currently Roboto Regular
+    sf::Clock mClock; // the main clock to handle frame rate
 };
 
 

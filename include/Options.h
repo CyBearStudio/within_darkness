@@ -8,20 +8,20 @@
 class Options
 {
 public:
-	Options();
-	void load(std::string lf);
-	void save();
+	Options(); // initializing settings with default values
+	void load(std::string lf); // retrieving settings values from file
+	void save(); // saving settings values in file
 
 private:
-	std::fstream optionsFile;
-	std::string fileName;
-	bool fullscreen;
-	unsigned int resX;
-	unsigned int resY;
+	std::fstream optionsFile; // options.txt
+	std::string fileName; // for saving later
+	bool fullscreen; // desired window style
+	unsigned int resX; // desired window width
+	unsigned int resY; // desired window height
     
 public:
-    sf::VideoMode getVideoMode();
-    sf::Uint32 getStyle();
+    sf::VideoMode getVideoMode(); // returns desired video mode based on resX and resY
+    sf::Uint32 getStyle(); // returns desired window style based on fullscreen value
 };
 
 #endif // OPTIONS_H_INCLUDED
