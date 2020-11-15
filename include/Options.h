@@ -2,6 +2,7 @@
 #define OPTIONS_H_INCLUDED
 
 #include <fstream>
+#include <SFML/Window.hpp>
 
 
 class Options
@@ -17,6 +18,10 @@ private:
 	bool fullscreen;
 	unsigned int resX;
 	unsigned int resY;
+    
+public:
+    sf::VideoMode getVideoMode();
+    sf::Uint32 getStyle();
 };
 
 #endif // OPTIONS_H_INCLUDED

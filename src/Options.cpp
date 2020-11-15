@@ -1,5 +1,5 @@
 #include "Options.h"
-#include <SFML/Window.hpp>
+
 
 Options::Options()
 {
@@ -66,3 +66,19 @@ void Options::save()
 
 	optionsFile << "resY:" << std::to_string(resY) << std::endl;
 }
+
+sf::VideoMode Options::getVideoMode()
+{
+    return sf::VideoMode(resX, resY);
+}
+
+sf::Uint32 Options::getStyle()
+{
+    if (fullscreen)
+    {
+        return sf::Style::Fullscreen;
+    }
+    return sf::Style::Default;
+}
+
+

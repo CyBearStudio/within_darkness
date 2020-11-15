@@ -23,6 +23,8 @@ private:
 	Logger mLogger;
 	Options mOptions;
 	std::string version;
+    sf::Font mFont;
+    sf::Clock mClock;
 };
 
 
