@@ -80,7 +80,7 @@ void Game::init()
     }
     sf::Sprite studioSprite;
     studioSprite.setTexture(studioTexture);
-    studioSprite.setPosition((mWindow.getSize().x / 2) - 256, (mWindow.getSize().y / 2) - 256);
+    studioSprite.setPosition((mWindow.getSize().x / 2) - 256.f, (mWindow.getSize().y / 2) - 256.f);
     sf::Text statText;
     statText.setFont(mFont);
     statText.setFillColor(sf::Color(255, 255, 255));
