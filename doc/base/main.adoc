@@ -4,7 +4,7 @@
 
 === Files:
 
-* link:../src/main.cpp[src/main.cpp]
+* link:../../src/main.cpp[src/main.cpp]
 
 === The main function:
 

@@ -4,9 +4,9 @@
 
 === Files:
 
-* link:../include/Game.h[include/Game.h]
+* link:../../include/Game.h[include/Game.h]
 
-* link:../src/Game.cpp[src/Game.cpp]
+* link:../../src/Game.cpp[src/Game.cpp]
 
 === The Game class:
 
