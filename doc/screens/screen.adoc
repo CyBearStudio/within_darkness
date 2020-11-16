@@ -1,0 +1,37 @@
+== Screen
+
+//link:screens/screen.adoc[screen.adoc]
+
+=== Files:
+
+* link:../../include/Screens/Screen.h[include/Screens/Screen.h]
+
+* link:../../src/Screens/Screen.cpp[include/Screens/Screen.cpp]
+
+=== The Screen class:
+
+* is a virtual class
+
+* is the base class to create specific screens
+
+* can process events, update and render through the corresponding methods
+
+* can block further event processing, updates or renders or not (depend on screen type and cannot be changed)
+
+.Screen class
+[source, C++]
+----
+class Screen
+{
+public:
+    Screen();
+    virtual void processEvents();
+    virtual void update();
+    virtual void render();
+
+private:
+    const bool blockEvents;
+    const bool blockUpdate;
+    const bool blockRender;
+}
+----
