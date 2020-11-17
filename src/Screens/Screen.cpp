@@ -1,7 +1,7 @@
 #include "Screens/Screen.h"
 
 
-Screen::Screen()
+Screen::Screen(Game* game, bool blockE, bool blockU, bool blockR) : mGame(game), blockEvents(blockE), blockUpdate(blockU), blockRender(blockR)
 {
 }
 
@@ -18,4 +18,19 @@ void Screen::update()
 void Screen::render()
 {
 	// virtual
+}
+
+bool Screen::getBlockEvents()
+{
+    return blockEvents;
+}
+
+bool Screen::getBlockUpdate()
+{
+    return blockUpdate;
+}
+
+bool Screen::getBlockRender()
+{
+    return blockRender;
 }
