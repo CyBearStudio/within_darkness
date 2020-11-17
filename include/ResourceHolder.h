@@ -1,19 +1,21 @@
 #ifndef RESOURCEHOLDER_H_INCLUDED
 #define RESOURCEHOLDER_H_INCLUDED
 
-#include "Game.h"
+#include <map>
+#include <memory>
+#include "Logger.h"
 
 
 template <typename Resource, typename Identifier>
 class ResourceHolder
 {
 public:
-    ResourceHolder(Game* game);
+    ResourceHolder(Logger* logger) : mLogger(logger) {};
     void load(Identifier id, const std::string& filename);
     const Resource& get(Identifier id) const;
     
 private:
-    Game* mGame;
+    Logger* mLogger;
     std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
 };
 
