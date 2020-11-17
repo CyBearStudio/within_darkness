@@ -219,3 +219,40 @@ private:
 ----
 
 
+
+== Resource management
+
+link:base/resources.adoc[resources.adoc]
+
+=== Files:
+
+* link:../include/ResourceHolder.h[include/ResourceHolder.h]
+
+* link:../src/ResourceHolder.cpp[src/ResourceHolder.cpp]
+
+=== The ResourceHolder class:
+
+* is a template class
+
+* hold resources (textures, audio, etc ...) in a map
+
+* can load a resource with a specific identifier
+
+* provide access to the resource using the identifier
+
+.ResourceHolder class
+[source, C++]
+----
+template <typename Resource, typename Identifier>
+class ResourceHolder
+{
+public:
+    void load(Identifier id, std::string filename);
+    const Resource& get(Identifier id) const;
+
+private:
+    std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
+}
+----
+
+
