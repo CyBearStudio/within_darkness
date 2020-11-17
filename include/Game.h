@@ -25,6 +25,9 @@ private:
 	std::string version; // version number stored in string for rendering conveniency
     sf::Font mFont; // the game font, currently Roboto Regular
     sf::Clock mClock; // the main clock to handle frame rate
+    
+public:
+    Logger& getLogger(); // returns the reference to the Logger object
 };
 
 

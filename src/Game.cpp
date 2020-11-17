@@ -142,3 +142,8 @@ void Game::update()
 void Game::render()
 {
 }
+
+Logger& Game::getLogger()
+{
+    return mLogger;
+}
