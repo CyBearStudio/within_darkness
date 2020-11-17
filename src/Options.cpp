@@ -10,7 +10,7 @@ Options::Options()
 	resY = res.height;
 }
 
-void Options::load(std::string lf)
+void Options::load(const std::string& lf)
 {
 	// opening file in read mode
 	fileName = lf;

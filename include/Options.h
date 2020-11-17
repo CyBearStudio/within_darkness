@@ -9,7 +9,7 @@ class Options
 {
 public:
 	Options(); // initializing settings with default values
-	void load(std::string lf); // retrieving settings values from file
+	void load(const std::string& lf); // retrieving settings values from file
 	void save(); // saving settings values in file
 
 private:

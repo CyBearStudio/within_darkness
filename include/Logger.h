@@ -8,8 +8,8 @@
 class Logger
 {
 public:
-    Logger(std::string lf); // link logger to lf file
-    void log(std::string str); // append str to log file and print it in console
+    Logger(const std::string& lf); // link logger to lf file
+    void log(const std::string& str); // append str to log file and print it in console
     
 private:
     std::ofstream logfile; // latestlog.txt
