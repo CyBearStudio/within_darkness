@@ -1,7 +1,7 @@
 #include "Options.h"
 
 
-Options::Options()
+Options::Options(Logger* logger) : mLogger(logger)
 {
 	// default values
 	fullscreen = true;
@@ -51,6 +51,8 @@ void Options::load(const std::string& lf)
 
 	// closing file to free memory
 	optionsFile.close();
+    
+    mLogger->log("Loaded options from file " + fileName, LOG::INFO);
 }
 
 void Options::save()
@@ -73,6 +75,8 @@ void Options::save()
 	optionsFile << "resX:" << std::to_string(resX) << std::endl;
 
 	optionsFile << "resY:" << std::to_string(resY) << std::endl;
+    
+    mLogger->log("Saved options in file " + fileName, LOG::INFO);
 }
 
 sf::VideoMode Options::getVideoMode()

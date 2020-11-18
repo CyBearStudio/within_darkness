@@ -15,5 +15,5 @@ void Logger::log(const std::string& str, LOG::TYPE type)
     std::tm tm = *std::localtime(&t);
 
     logfile << "[" << std::put_time(&tm, "%T") << "] " << mLogTypeStampMap[type] << str << std::endl; // line break
-    std::cout << "[" << std::put_time(&tm, "%T") << "] " << str << std::endl; // line break
+    std::cout << "[" << std::put_time(&tm, "%T") << "] " << mLogTypeStampMap[type] << str << std::endl; // line break
 }

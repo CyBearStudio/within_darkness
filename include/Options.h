@@ -3,12 +3,13 @@
 
 #include <fstream>
 #include <SFML/Window.hpp>
+#include "Logger.h"
 
 
 class Options
 {
 public:
-	Options(); // initializing settings with default values
+	Options(Logger* logger); // initializing settings with default values
 	void load(const std::string& lf); // retrieving settings values from file
 	void save(); // saving settings values in file
 
@@ -18,6 +19,7 @@ private:
 	bool fullscreen; // desired window style
 	unsigned int resX; // desired window width
 	unsigned int resY; // desired window height
+	Logger* mLogger;
     
 public:
     sf::VideoMode getVideoMode(); // returns desired video mode based on resX and resY

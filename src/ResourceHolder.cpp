@@ -7,9 +7,9 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
     std::unique_ptr<Resource> resource(new Resource());
     if (!resource->loadFromFile(filename))
     {
-        mLogger->log("ERROR: missing file " + filename);
+        mLogger->log("Missing file " + filename, LOG::ERROR);
         
-        mLogger->log("Program terminated with ERROR");
+        mLogger->log("Stoping!", LOG::ERROR);
         exit(EXIT_FAILURE);
     }
     
@@ -17,6 +17,8 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
     {
         mResourceMap[id].reset(resource.release());
     }
+    
+    mLogger->log("Loaded file " + filename, LOG::INFO);
 }
 
 template <typename Resource, typename Identifier>
