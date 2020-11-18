@@ -24,7 +24,7 @@ public:
     
 private:
     std::ofstream logfile; // latestlog.txt
-    std::map<LOG::TYPE, std::string> mLogTypeStampMap {{LOG::INFO, "[INFO]"}, {LOG::CHAT, "[CHAT]"}, {LOG::WARNING, "[WARNING]"}, {LOG::ERROR, "[ERROR]"}};
+    std::map<LOG::TYPE, std::string> mLogTypeStampMap {{LOG::INFO, "[INFO]: "}, {LOG::CHAT, "[CHAT]: "}, {LOG::WARNING, "[WARNING]: "}, {LOG::ERROR, "[ERROR]: "}};
 };
 
 #endif // LOGGER_H_INCLUDED
