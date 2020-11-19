@@ -295,8 +295,8 @@ public:
     ...
 
 private:
-    ResourceHolder<Resource_1, Identifier_1> Resource_1Holder;
-    ResourceHolder<Resource_2, Identifier_2> Resource_2Holder;
+    ResourceHolder<Resource_1, Identifier_1> mResource_1Holder;
+    ResourceHolder<Resource_2, Identifier_2> mResource_2Holder;
     ...
 }
 ----
