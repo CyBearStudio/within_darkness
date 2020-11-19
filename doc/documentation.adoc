@@ -302,3 +302,40 @@ private:
 ----
 
 
+
+== Loading screen
+
+link:screens/loadingScreen.adoc[loadingScreen.adoc]
+
+=== Files:
+
+* link:../include/LoadingScreen.h[include/LoadingScreen.h]
+
+* link:../src/LoadingScreen.cpp[src/LoadingScreen.cpp]
+
+=== The LoadingScreen class:
+
+* inherits the Screen class
+
+* handle loading resources and displaying it
+
+* can register resource to load
+
+* can process resource to load
+
+* store requests as a pair containing the identifier and the filename
+
+.LoadingScreen class
+[source, C++]
+----
+class LoadingScreen : public Screen
+{
+public:
+    LoadingScreen();
+    void processEvents();
+    void update();
+    void render();
+    template <typename Identifier>
+    void register(Identifier id, const std::string& filename);
+}
+----
