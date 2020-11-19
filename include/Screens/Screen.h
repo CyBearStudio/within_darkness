@@ -13,7 +13,7 @@ public:
 	virtual void render();
 
 private:
-    const Game* mGame;
+    Game* mGame;
 	const bool blockEvents;
 	const bool blockUpdate;
 	const bool blockRender;
