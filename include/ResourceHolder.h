@@ -12,6 +12,8 @@ class ResourceHolder
 public:
     ResourceHolder(Logger* logger) : mLogger(logger) {};
     void load(Identifier id, const std::string& filename);
+    template <typename Parameter>
+    void load(Identifier id, const std::string& filename, const Parameter& secondParam);
     const Resource& get(Identifier id) const;
     
 private:
