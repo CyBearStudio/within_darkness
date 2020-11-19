@@ -1,0 +1,39 @@
+== Resource management
+
+//link:base/resourceManager.adoc[resourceManager.adoc]
+
+=== Files:
+
+* link:../../include/ResourceManager.h[include/ResourceManager.h]
+
+* link:../../src/ResourceManager.cpp[src/ResourceManager.cpp]
+
+=== The ResourceManager class:
+
+* stores the different resource holding instances
+
+* passes the load requests by
+
+* passes the get requests by
+
+* manage resource types automaticaly
+
+.ResourceManager class
+[source, C++]
+----
+class ResourceManager
+{
+public:
+    ResourceManager(Logger& logger);
+    void load(Identifier_1 id_1, const std::string& filename);
+    void get(Identifier_1 id_1);
+    void load(Identifier_1 id_1, const std::string& filename);
+    void get(Identifier_1 id_1);
+    ...
+
+private:
+    ResourceHolder<Resource_1, Identifier_1> Resource_1Holder;
+    ResourceHolder<Resource_2, Identifier_2> Resource_2Holder;
+    ...
+}
+----
