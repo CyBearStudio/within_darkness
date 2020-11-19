@@ -1,6 +1,6 @@
-== Resource management
+== Resource holding
 
-//link:base/resources.adoc[resources.adoc]
+//link:base/resourceHolder.adoc[resourceHolder.adoc]
 
 === Files:
 
