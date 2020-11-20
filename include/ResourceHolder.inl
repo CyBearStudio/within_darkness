@@ -1,4 +1,3 @@
-#include "ResourceHolder.h"
 
 
 template <typename Resource, typename Identifier>
@@ -13,7 +12,7 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
         exit(EXIT_FAILURE);
     }
     
-    if (!mResourceMap.insert(std::make_pair(id, std::move(resource))))
+    if (!mResourceMap.insert(std::make_pair(id, std::move(resource))).second)
     {
         mResourceMap[id].reset(resource.release());
     }
@@ -45,5 +44,15 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
 template <typename Resource, typename Identifier>
 const Resource& ResourceHolder<Resource, Identifier>::get(Identifier id) const
 {
-    return mResourceMap[id];
+    auto found = mResourceMap.find(id);
+
+    if(found == mResourceMap.end())
+    {
+        mLogger->log("Attempting to access a resource that wasn't loaded before", LOG::ERROR);
+
+        mLogger->log("Stoping!", LOG::ERROR);
+        exit(EXIT_FAILURE);
+    }
+
+    return *found->second;
 }
