@@ -1,7 +1,7 @@
 #ifndef RESOURCEMANAGER_H_INCLUDED
 #define RESOURCEMANAGER_H_INCLUDED
 
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 #include "Logger.h"
 #include "ResourceHolder.h"
 
@@ -11,6 +11,8 @@ namespace Textures
     enum ID {};
 }
 
+typedef ResourceHolder<sf::Texture, Textures::ID> TextureHolder;
+
 class ResourceManager
 {
 public:
@@ -19,7 +21,7 @@ public:
     const sf::Texture& get(Textures::ID id) const;
     
 private:
-    ResourceHolder<sf::Texture, Textures::ID> mTextureHolder;
+    TextureHolder mTextureHolder;
 };
 
 #endif // RESOURCEMANAGER_H_INCLUDED
