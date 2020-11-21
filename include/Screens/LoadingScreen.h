@@ -3,21 +3,21 @@
 
 #include "Screen.h"
 #include <queue>
-#include <utility>
+#include <memory>
+#include "Misc/LoadingTask.h"
 
 
-class LoadingScreen : public LoadingScreen
+class LoadingScreen : public Screen
 {
 public:
     LoadingScreen(Game* game, bool blockE, bool blockU, bool blockR);
     void ProcessEvents();
     void update();
     void render();
-    template<typename Identifier>
-    void register(Identifier id, const std::string& filename);
+    void registerTask(Task& task);
 
 private:
-    std::queue<std::pair> mTaskQueue;
+    std::queue<std::unique_ptr<Task>> mTaskQueue;
     int mTaskCount;
 };
 

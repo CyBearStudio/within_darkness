@@ -1,7 +1,8 @@
 #include "Screens/LoadingScreen.h"
+#include <utility>
 
 
-LoadingScreen::LoadingScreen(Game* game, bool blockE, bool blockU, bool blockR) : Screen(game, blockE, blockU, blockR)
+LoadingScreen::LoadingScreen(Game* game, bool blockE, bool blockU, bool blockR) : Screen(game, blockE, blockU, blockR), mTaskCount(0)
 {
 }
 
@@ -20,9 +21,10 @@ void LoadingScreen::render()
     
 }
 
-template<typename Identifier>
-void LoadingScreen::register(Identifier id, const std::string& filename) 
+void LoadingScreen::registerTask(Task& task)
 {
-    mTaskQueue.push(std::make_pair(id, filename));
+    std::unique_ptr<Task> task_ptr(&task);
+    mTaskQueue.push(std::move(task_ptr));
+
     mTaskCount = mTaskQueue.size();
 }
