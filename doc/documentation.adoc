@@ -352,9 +352,9 @@ link:misc/task.adoc[task.adoc]
 
 * link:../inlcude/Misc/LoadingTask.h[include/Misc/LoadingTask.h]
 
-* link:../src/Misc/Task.cpp[src/Misc/Task.cpp]
+* link:../include/Misc/LoadingTask.inl[include/Misc/LoadingTask.inl]
 
-* link:../src/Misc/LoadingTask.cpp[src/Misc/LoadingTask.cpp]
+* link:../src/Misc/Task.cpp[src/Misc/Task.cpp]
 
 === The Task class:
 
