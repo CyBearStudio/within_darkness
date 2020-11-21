@@ -30,6 +30,7 @@ private:
 	sf::Clock mUpdateClock; // clock to measure time between updates
     sf::Clock mFPSClock; // clock to measure frame rate
 	sf::Time mTimePerFrame; // time between each frame (0 for no limit)
+	sf::Clock mAlphaClock; // clock to drive alpha value of info text in title screen
     
 public:
     Logger& getLogger(); // returns the reference to the Logger object

@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Version.h"
+#include <math.h>
 
 
 Game::Game() : mIsRunning(true), mLogger("latestlog.txt"), mOptions(&mLogger), mTimePerFrame(sf::Time::Zero)
@@ -124,7 +125,7 @@ void Game::render()
     sf::Time elapsedTime = mFPSClock.restart();
     float fps = 1 / elapsedTime.asSeconds();
 
-    // rendering start screen
+    // rendering title screen
     mWindow.clear(sf::Color(30, 30, 30));
 
     sf::Text statText;
@@ -132,7 +133,19 @@ void Game::render()
     statText.setFillColor(sf::Color(255, 255, 255));
     statText.setString("version " + version + "; fps: " + std::to_string(int(fps)));
 
+    sf::Text titleText("Within Darkness", mFont, 90);
+    titleText.setFillColor(sf::Color(255, 255, 255));
+    titleText.setOrigin(titleText.getLocalBounds().width / 2, titleText.getLocalBounds().height / 2);
+    titleText.setPosition(mWindow.getSize().x / 2, mWindow.getSize().y / 2);
+
+    sf::Text infoText("Press a key to continue", mFont);
+    infoText.setFillColor(sf::Color(255, 255, 255, 122 * cos(2 * mAlphaClock.getElapsedTime().asSeconds()) + 123));
+    infoText.setOrigin(infoText.getLocalBounds().width / 2, infoText.getLocalBounds().height / 2);
+    infoText.setPosition(mWindow.getSize().x / 2, 3 * (mWindow.getSize().y / 4));
+
     mWindow.draw(statText);
+    mWindow.draw(titleText);
+    mWindow.draw(infoText);
     mWindow.display();
 }
 
