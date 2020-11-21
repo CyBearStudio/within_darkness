@@ -2,7 +2,7 @@
 #include "Version.h"
 
 
-Game::Game() : mLogger("latestlog.txt"), mOptions(&mLogger)
+Game::Game() : mIsRunning(true), mLogger("latestlog.txt"), mOptions(&mLogger), mTimePerFrame(sf::Time::Zero)
 {
     // storing version number for later use
 	version = std::to_string(PROJECT_VERSION_MAJOR) + "." + std::to_string(PROJECT_VERSION_MINOR) + "." + std::to_string(PROJECT_VERSION_PATCH);
@@ -62,73 +62,56 @@ void Game::init()
     
     // re-creating the main window to display game
     mWindow.create(mOptions.getVideoMode(), "Within Darkness " + version, mOptions.getStyle());
-    
-    sf::Texture studioTexture;
-    if (!studioTexture.loadFromFile("res/studiologo.png"))
-    {
-        mLogger.log("Missing file res/studiologo.png", LOG::ERROR);
-        
-        mLogger.log("Stoping!", LOG::ERROR);
-        exit(EXIT_FAILURE);
-    }
-    mLogger.log("Loaded file res/studiologo.png", LOG::INFO);
-    sf::Sprite studioSprite;
-    studioSprite.setTexture(studioTexture);
-    studioSprite.setPosition((mWindow.getSize().x / 2) - 256.f, (mWindow.getSize().y / 2) - 256.f);
-    
-    sf::Text statText;
-    statText.setFont(mFont);
-    statText.setFillColor(sf::Color(255, 255, 255));
-    
-    mLogger.log("Loaded start screen", LOG::INFO);
-    
-    // rendering first game frame
-    mWindow.clear(sf::Color(30, 30, 30));
-    mWindow.draw(studioSprite);
-    mWindow.display();
-    
-    mLogger.log("Lunched game", LOG::INFO);
-    
-    bool startScreen = true;
-    sf::Time elapsedTime;
-    mClock.restart();
-    
-    // main game loop: will be in run() next patch
-    while (startScreen)
-    {
-        sf::Event event;
-        while (mWindow.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-            {
-                startScreen = false;
-            }
-            else if (event.type == sf::Event::KeyPressed)
-            {
-                startScreen = false;
-            }
-        }
-        
-        // calculating frame rate
-        elapsedTime = mClock.restart();
-        float fps = 1 / elapsedTime.asSeconds();
-        statText.setString("version " + version + "; fps: " + std::to_string(int(fps)));
-        
-        // rendering start screen
-        mWindow.clear(sf::Color(30, 30, 30));
-        mWindow.draw(studioSprite);
-        mWindow.draw(statText);
-        mWindow.display();
-    }
 }
 
 void Game::run()
 {
+    mLogger.log("Lunched game", LOG::INFO);
+
+    // objects to handle frame rate
+    sf::Clock clock;
+    sf::Time timeSinceLastRender(sf::Time::Zero);
+    
+    // deltaTime between updates
+    sf::Time elapsedTime(sf::Time::Zero);
+
+    while (mIsRunning)
+    {
+        processEvents();
+        update();
+
+        elapsedTime = clock.restart();
+        timeSinceLastRender += elapsedTime;
+
+        if(timeSinceLastRender >= mTimePerFrame)
+        {
+            render();
+            timeSinceLastRender = sf::Time::Zero;
+        }
+    }
+
     mLogger.log("Stoping!", LOG::INFO);
+}
+
+void Game::quit() 
+{
+    mIsRunning = false;
 }
 
 void Game::processEvents()
 {
+    sf::Event event;
+    while (mWindow.pollEvent(event))
+    {
+        if (event.type == sf::Event::Closed)
+        {
+            mIsRunning = false;
+        }
+        else if (event.type == sf::Event::KeyPressed)
+        {
+            mIsRunning = false;
+        }
+    }
 }
 
 void Game::update()
@@ -137,6 +120,20 @@ void Game::update()
 
 void Game::render()
 {
+    // calculating frame rate
+    sf::Time elapsedTime = mFPSClock.restart();
+    float fps = 1 / elapsedTime.asSeconds();
+
+    // rendering start screen
+    mWindow.clear(sf::Color(30, 30, 30));
+
+    sf::Text statText;
+    statText.setFont(mFont);
+    statText.setFillColor(sf::Color(255, 255, 255));
+    statText.setString("version " + version + "; fps: " + std::to_string(int(fps)));
+
+    mWindow.draw(statText);
+    mWindow.display();
 }
 
 Logger& Game::getLogger()
