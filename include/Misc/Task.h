@@ -5,8 +5,7 @@
 class Task
 {
 public:
-    virtual auto getId();
-    virtual std::string& getFileName();
+    virtual ~Task();
 };
 
 #endif // TASK_H_INCLUDED

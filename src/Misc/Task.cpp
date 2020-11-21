@@ -1,12 +1,6 @@
 #include "Misc/Task.h"
 
 
-auto Task::getId() 
+Task::~Task() 
 {
-    // virtual
-}
-
-std::string& Task::getFileName() 
-{
-    // virtual
 }
