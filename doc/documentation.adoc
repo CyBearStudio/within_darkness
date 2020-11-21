@@ -339,3 +339,82 @@ public:
     void register(Identifier id, const std::string& filename);
 }
 ----
+
+
+
+== Task and LoadingTask
+
+link:misc/task.adoc[task.adoc]
+
+=== Files:
+
+* link:../include/Misc/Task.h[include/Misc/Task.h]
+
+* link:../inlcude/Misc/LoadingTask.h[include/Misc/LoadingTask.h]
+
+* link:../src/Misc/Task.cpp[src/Misc/Task.cpp]
+
+* link:../src/Misc/LoadingTask.cpp[src/Misc/LoadingTask.cpp]
+
+=== The Task class:
+
+* is virtual
+
+* giva access to an identifier and a filename
+
+.Task class
+[source, C++]
+----
+class Task
+{
+public:
+    virtual auto getId();
+    virtual std::string& getFileName();
+}
+----
+
+=== The LoadingTask class:
+
+* inherits task
+
+* is a template class
+
+* stores a pair of Identifier and std::string
+
+.LoadingTask class
+[source, C++]
+----
+template<typename Identifier>
+class LoadingTask : public Task
+{
+public:
+    LoadingTask(Identifier id, std::string filename);
+    Identifier getId();
+    std::string& getFileName();
+
+private:
+    Identifier mId;
+    std::string mFileName;
+}
+----
+
+=== The loading::make_task function template:
+
+* construct a LoadingTask object
+
+* the template types can be implicitly deduced from the arguments passed to make_task
+
+.loading::make_task function
+[source, C++]
+----
+namespace loading
+{
+    template<class T1, class T2>
+    LoadingTask<T1, T2> make_task(T1 x, T2 y)
+    {
+        return LoadingTask<T1, T2>(x, y);
+    }
+}
+----
+
+
