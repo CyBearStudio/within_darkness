@@ -6,7 +6,7 @@
 
 * link:../../include/Screens/LoadingScreen.h[include/Screens/LoadingScreen.h]
 
-* link:../../src/Screens/LoadingScreen.cpp[src/Screens/LoadingScreen.cpp]
+* link:../../include/Screens/LoadingScreen.inl[include/Screens/LoadingScreen.inl]
 
 === The LoadingScreen class:
 
