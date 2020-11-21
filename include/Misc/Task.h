@@ -4,6 +4,7 @@
 
 class Task
 {
+public:
     virtual auto getId();
     virtual std::string& getFileName();
 }
