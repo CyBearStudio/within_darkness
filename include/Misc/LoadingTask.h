@@ -25,7 +25,7 @@ namespace loading
     template<typename Identifier>
     LoadingTask<Identifier> make_task(Identifier id,const std::string& filename)
     {
-        return LoadingTask<Identifier>(id, fiename);
+        return LoadingTask<Identifier>(id, filename);
     }
 }
 
