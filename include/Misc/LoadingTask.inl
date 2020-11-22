@@ -1,7 +1,7 @@
 
 
 template<typename Identifier>
-LoadingTask<Identifier>::LoadingTask(Identifier id, std::string filename) : mId(id), mFileName(filename)
+LoadingTask<Identifier>::LoadingTask(Identifier id, const std::string& filename) : mId(id), mFileName(filename)
 {
 }
 

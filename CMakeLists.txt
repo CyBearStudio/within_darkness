@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name and version
-project(WithinDarkness VERSION 0.0.3)
+project(WithinDarkness VERSION 0.0.4)
 
 # configure a header file to pass the version number to the source code
 configure_file(${PROJECT_SOURCE_DIR}/include/Version.h.in ${PROJECT_SOURCE_DIR}/include/Version.h)

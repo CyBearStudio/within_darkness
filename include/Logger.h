@@ -7,6 +7,7 @@
 
 namespace LOG 
 {
+    // type of log message specifier
     enum  TYPE
     {
         INFO,
@@ -24,7 +25,7 @@ public:
     
 private:
     std::ofstream logfile; // latestlog.txt
-    std::map<LOG::TYPE, std::string> mLogTypeStampMap {{LOG::INFO, "[INFO]: "}, {LOG::CHAT, "[CHAT]: "}, {LOG::WARNING, "[WARNING]: "}, {LOG::ERROR, "[ERROR]: "}};
+    std::map<LOG::TYPE, std::string> mLogTypeStampMap {{LOG::INFO, "[INFO]: "}, {LOG::CHAT, "[CHAT]: "}, {LOG::WARNING, "[WARNING]: "}, {LOG::ERROR, "[ERROR]: "}}; // log type specifier to string
 };
 
 #endif // LOGGER_H_INCLUDED

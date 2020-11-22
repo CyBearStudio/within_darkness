@@ -5,7 +5,7 @@
 class Task
 {
 public:
-    virtual ~Task();
+    virtual ~Task(); // empty virtual class
 };
 
 #endif // TASK_H_INCLUDED

@@ -3,4 +3,5 @@
 
 Task::~Task() 
 {
+    // virtual
 }

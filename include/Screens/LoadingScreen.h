@@ -11,14 +11,14 @@ class LoadingScreen : public Screen
 {
 public:
     LoadingScreen(Game* game, bool blockE, bool blockU, bool blockR);
-    void ProcessEvents();
-    void update();
-    void render();
-    void registerTask(Task& task);
+    void ProcessEvents(); // inherited
+    void update(); // inherited
+    void render(); // inherited
+    void registerTask(Task& task); // register a new task to be processed
 
 private:
-    std::queue<std::unique_ptr<Task>> mTaskQueue;
-    int mTaskCount;
+    std::queue<std::unique_ptr<Task>> mTaskQueue; // task holder with FIFO structure
+    int mTaskCount; // number of registered tasks to process
 };
 
 #endif // LOADINGSCREEN_H_INCLUDED

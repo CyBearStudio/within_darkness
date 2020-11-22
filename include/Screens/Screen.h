@@ -14,12 +14,12 @@ public:
 
 private:
     Game* mGame;
-	const bool blockEvents;
-	const bool blockUpdate;
-	const bool blockRender;
+	const bool blockEvents; // wether screen prevent next screens from processing events
+	const bool blockUpdate; // wether screen prevent next screens from updating
+	const bool blockRender; // wether screen prevent next screens from rendering
     
 public:
-    bool getBlockEvents();
+    bool getBlockEvents(); // accessors
     bool getBlockUpdate();
     bool getBlockRender();
 };

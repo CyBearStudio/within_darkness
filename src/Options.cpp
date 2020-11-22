@@ -86,6 +86,7 @@ sf::VideoMode Options::getVideoMode()
 
 sf::Uint32 Options::getStyle()
 {
+	// return ready to use value for window
     if (fullscreen)
     {
         return sf::Style::Fullscreen;

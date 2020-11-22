@@ -8,9 +8,9 @@ template<typename Identifier>
 class LoadingTask : public Task
 {
 public:
-    LoadingTask(Identifier id, std::string filename);
-    Identifier getId();
-    std::string& getFileName();
+    LoadingTask(Identifier id,const std::string& filename);
+    Identifier getId(); // returns Id
+    std::string& getFileName(); // returns file name
 
 private:
     Identifier mId;
@@ -21,8 +21,9 @@ private:
 
 namespace loading
 {
+    // function to create a task easily without having to determine typenames
     template<typename Identifier>
-    LoadingTask<Identifier> make_task(Identifier id, std::string filename)
+    LoadingTask<Identifier> make_task(Identifier id,const std::string& filename)
     {
         return LoadingTask<Identifier>(id, fiename);
     }

@@ -76,14 +76,18 @@ void Game::run()
     // deltaTime between updates
     sf::Time elapsedTime(sf::Time::Zero);
 
+    // main loop
     while (mIsRunning)
     {
+        // update game state
         processEvents();
         update();
 
+        // update time since last render
         elapsedTime = clock.restart();
         timeSinceLastRender += elapsedTime;
 
+        // render if fps limit is not reached
         if(timeSinceLastRender >= mTimePerFrame)
         {
             render();
@@ -101,6 +105,7 @@ void Game::quit()
 
 void Game::processEvents()
 {
+    // event processing of title screen
     sf::Event event;
     while (mWindow.pollEvent(event))
     {
@@ -128,21 +133,25 @@ void Game::render()
     // rendering title screen
     mWindow.clear(sf::Color(30, 30, 30));
 
+    // initializing stat text to display version and fps
     sf::Text statText;
     statText.setFont(mFont);
     statText.setFillColor(sf::Color(255, 255, 255));
     statText.setString("version " + version + "; fps: " + std::to_string(int(fps)));
 
+    // initializing title text
     sf::Text titleText("Within Darkness", mFont, 90);
     titleText.setFillColor(sf::Color(255, 255, 255));
     titleText.setOrigin(titleText.getLocalBounds().width / 2, titleText.getLocalBounds().height / 2);
     titleText.setPosition(mWindow.getSize().x / 2, mWindow.getSize().y / 2);
 
+    // initializing "Press a key" text
     sf::Text infoText("Press a key to continue", mFont);
     infoText.setFillColor(sf::Color(255, 255, 255, 122 * cos(2 * mAlphaClock.getElapsedTime().asSeconds()) + 123));
     infoText.setOrigin(infoText.getLocalBounds().width / 2, infoText.getLocalBounds().height / 2);
     infoText.setPosition(mWindow.getSize().x / 2, 3 * (mWindow.getSize().y / 4));
 
+    // rendering assets
     mWindow.draw(statText);
     mWindow.draw(titleText);
     mWindow.draw(infoText);
