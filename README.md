@@ -12,7 +12,25 @@ The game is coded in C++11.
 
 ## How to compile
 
-Using CMAke to compile is recommended.
+Using [CMAke](https://cmake.org "cmake.org") to compile is recommended.
+
+**Having access to the repository is needed.**
+
+### Cloning with HTTP
+
+Github identification is required when cloning with HTTP.
+
+'''
+git clone https://github.com/CyBearStudio/within_darkness.git
+'''
+
+### Cloning with SSH
+
+Github SSH key setup is required when cloning with SSH.
+
+'''
+git clone git@github.com:CyBearStudio/within_darkness.git
+'''
 
 ## Folder structure
 
