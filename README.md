@@ -20,17 +20,17 @@ Using [CMAke](https://cmake.org "cmake.org") to compile is recommended.
 
 Github identification is required when cloning with HTTP.
 
-'''
+```
 git clone https://github.com/CyBearStudio/within_darkness.git
-'''
+```
 
 ### Cloning with SSH
 
 Github SSH key setup is required when cloning with SSH.
 
-'''
+```
 git clone git@github.com:CyBearStudio/within_darkness.git
-'''
+```
 
 ## Folder structure
 
