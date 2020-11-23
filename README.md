@@ -3,11 +3,16 @@
 ![Panel](img/panel.png)
 
 _Within Darkness_ is a 2d Action RPG and Shooter game playable in solo or co-op.
-The game is coded in C++.
+
+The game is coded in C++11.
 
 ## Dependencies
 
 [<img src="https://www.sfml-dev.org/images/logo.png">](https://www.sfml-dev.org/index.php)
+
+## How to compile
+
+Using CMAke to compile is recommended.
 
 ## Folder structure
 
