@@ -42,7 +42,6 @@ cmake ..
 cmake --build .
 ```
 
-
 **Don't forget to copy res folder at the root of the executable.**
 
 ## Folder structure
