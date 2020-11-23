@@ -18,19 +18,32 @@ Using [CMAke](https://cmake.org "cmake.org") to compile is recommended.
 
 ### Cloning with HTTP
 
-Github identification is required when cloning with HTTP.
+**Github identification is required when cloning with HTTP.**
 
 ```
 git clone https://github.com/CyBearStudio/within_darkness.git
+cd within_darkness
+mkdir build
+cd build
+cmake ..
+cmake --build .
 ```
 
 ### Cloning with SSH
 
-Github SSH key setup is required when cloning with SSH.
+**Github SSH key setup is required when cloning with SSH.**
 
 ```
 git clone git@github.com:CyBearStudio/within_darkness.git
+cd within_darkness
+mkdir build
+cd build
+cmake ..
+cmake --build .
 ```
+
+
+**Don't forget to copy res folder at the root of the executable.**
 
 ## Folder structure
 
