@@ -200,6 +200,8 @@ link:screens/screen.adoc[screen.adoc]
 
 * is the base class to create specific screens
 
+* can be initialized to load and setup default assets
+
 * can process events, update and render through the corresponding methods
 
 * can block further event processing, updates or renders or not (depend on screen type and cannot be changed)
@@ -211,6 +213,7 @@ class Screen
 {
 public:
     Screen();
+    virtual void init();
     virtual void processEvents();
     virtual void update();
     virtual void render();
