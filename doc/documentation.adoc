@@ -38,6 +38,8 @@ This is the technical documentation for developers. One can find here every nece
 
 * [x] main function
 
+* [ ] GlobalResource class
+
 * [x] Logger class
 
 * [ ] Game class
@@ -49,6 +51,14 @@ This is the technical documentation for developers. One can find here every nece
 * [x] ResourceHolder class
 
 * [ ] ResourceManager class
+
+* [ ] LoadingScreen class
+
+* [x] Task and LoadingTask classes
+
+* [ ] MenuScreen class
+
+* [ ] LevelScreen class
 
 
 
