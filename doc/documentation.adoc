@@ -10,6 +10,30 @@ This is the technical documentation for developers. One can find here every nece
 
 . link:#task-list[Task list]
 
+. link:#program-entry[Program entry]
+
+. link:#global-resources[Global resources]
+
+. link:#logger[Logger]
+
+. link:#game[Game]
+
+. link:#options[Options]
+
+. link:screen[Screen]
+
+. link:#resource-holding[Resource holding]
+
+. link:#resource-management[Resource management]
+
+. link:#loading-screen[Loading screen]
+
+. link:#task-and-loadingtask[Task and LoadingTask]
+
+. link:#menu-screen[Menu screen]
+
+. link:#level-screen[Level screen]
+
 == Task list
 
 * [x] main function
