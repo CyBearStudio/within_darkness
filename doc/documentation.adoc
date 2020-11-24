@@ -57,6 +57,43 @@ int main()
 
 
 
+== Global resources
+
+link:base/globalResource.adoc[globalResource.adoc]
+
+=== Files:
+
+* link:../include/GlobalResource.h[include/GlobalResource.h]
+
+* link:../src/GlobalResource.cpp[src/GlobalResource.cpp]
+
+=== The GlobalResource class:
+
+* is a static class to store the global resource paths and variables
+
+* is to be included in source files (.cpp, .inl) and never in headers (.h)
+
+* is final so can't be inherited from
+
+* has a private default constructor not to be implemented
+
+.GlobalResource class:
+[source, C++]
+----
+class GlobalResource final
+{
+private:
+    GlobalResource();
+
+public:
+    static const Type1 GLOBAL_VAR1;
+    static const Type2 GLOBAL_VAR2;
+    ...
+}
+----
+
+
+
 == Logger
 
 link:base/logger.adoc[logger.adoc]
