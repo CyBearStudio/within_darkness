@@ -1,0 +1,29 @@
+== Level screen
+
+//link:screens/levelScreen.adoc[levelScreen.adoc]
+
+=== Files:
+
+* link:../../include/Screens/LevelScreen.h[include/Screens/LevelScreen.h]
+
+* link:../../src/Screens/LevelScreen.cpp[src/Screens/LevelScreen.cpp]
+
+=== The LevelScreen class:
+
+* inherits the Screen class
+
+* handle the level
+
+.LevelScreen class
+[source, C++]
+----
+class LevelScreen : public Screen
+{
+public:
+    LevelScreen();
+    void init();
+    void processEvents();
+    void update();
+    void render();
+}
+----
