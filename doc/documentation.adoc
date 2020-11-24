@@ -20,7 +20,7 @@ This is the technical documentation for developers. One can find here every nece
 
 . link:#options[Options]
 
-. link:screen[Screen]
+. link:#screen[Screen]
 
 . link:#resource-holding[Resource holding]
 
