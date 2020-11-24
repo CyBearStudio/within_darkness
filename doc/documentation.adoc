@@ -421,3 +421,35 @@ namespace loading
 ----
 
 
+
+== Menu screen
+
+link:screens/menuScreen.adoc[menuScreen.adoc]
+
+=== Files:
+
+* link:../include/Screens/MenuScreen.h[include/Screens/MenuScreen.h]
+
+* link:../src/Screens/MenuScreen.cpp[src/Screens/MenuScreen.cpp]
+
+=== The MenuScreen class:
+
+* inherits the Screen class
+
+* handle main menu
+
+* is composed of widgets
+
+.MenuScreen class
+[source, C++]
+----
+class MenuScreen : publc Screen
+{
+public:
+    MenuScreen();
+    void init();
+    void processEvents();
+    void update();
+    void render();
+}
+----
