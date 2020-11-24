@@ -46,12 +46,12 @@ cmake --build .
 
 ## Folder structure
 
-__doc/__ contains the technical documentation for developers
+[__doc/__](doc/) contains the technical documentation for developers
 
-__img/__ contains images such as the banner, sreenshots, etc...
+[__img/__](img/) contains images such as the banner, sreenshots, etc...
 
-__include/__ contains the header files
+[__include/__](include/) contains the header files
 
-__res/__ contains the resources of the game (textures, audio, etc...)
+[__res/__](res/) contains the resources of the game (textures, audio, etc...)
 
-__src/__ contains the source files
+[__src/__](src/) contains the source files
