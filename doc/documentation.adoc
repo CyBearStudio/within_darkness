@@ -4,9 +4,11 @@
 
 This is the technical documentation for developers. One can find here every necessary info on the code that has been written and the one to write.
 
-:toc:
-
 ---
+
+== Table of content
+
+. link:#task-list[Task list]
 
 == Task list
 
