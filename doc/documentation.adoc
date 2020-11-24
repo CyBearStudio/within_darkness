@@ -312,9 +312,9 @@ link:screens/loadingScreen.adoc[loadingScreen.adoc]
 
 === Files:
 
-* link:../include/LoadingScreen.h[include/LoadingScreen.h]
+* link:../include/Screens/LoadingScreen.h[include/Screens/LoadingScreen.h]
 
-* link:../src/LoadingScreen.cpp[src/LoadingScreen.cpp]
+* link:../src/Screens/LoadingScreen.cpp[src/Screens/LoadingScreen.cpp]
 
 === The LoadingScreen class:
 
@@ -339,8 +339,7 @@ public:
     void processEvents();
     void update();
     void render();
-    template <typename Identifier>
-    void register(Identifier id, const std::string& filename);
+    void registerTask(Task& task);
 }
 ----
 

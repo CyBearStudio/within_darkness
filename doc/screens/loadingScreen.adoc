@@ -6,7 +6,7 @@
 
 * link:../../include/Screens/LoadingScreen.h[include/Screens/LoadingScreen.h]
 
-* link:../../include/Screens/LoadingScreen.inl[include/Screens/LoadingScreen.inl]
+* link:../../src/Screens/LoadingScreen.cpp[src/Screens/LoadingScreen.cpp]
 
 === The LoadingScreen class:
 
@@ -31,7 +31,6 @@ public:
     void processEvents();
     void update();
     void render();
-    template <typename Identifier>
-    void register(Identifier id, const std::string& filename);
+    void registerTask(Task& task);
 }
 ----
