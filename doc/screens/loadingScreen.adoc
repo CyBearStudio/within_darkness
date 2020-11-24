@@ -27,6 +27,7 @@ class LoadingScreen : public Screen
 {
 public:
     LoadingScreen();
+    void init();
     void processEvents();
     void update();
     void render();
