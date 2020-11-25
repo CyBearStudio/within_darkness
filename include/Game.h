@@ -25,7 +25,7 @@ private:
 	sf::RenderWindow mWindow; // the main window
 	Logger mLogger; // logger object to write in log file and console
 	Options mOptions; // options object to handle game settings
-	std::string version; // version number stored in string for rendering conveniency
+	std::string mVersion; // version number stored in string for rendering conveniency
     sf::Font mFont; // the game font, currently Roboto Regular
 	sf::Clock mUpdateClock; // clock to measure time between updates
     sf::Clock mFPSClock; // clock to measure frame rate

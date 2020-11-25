@@ -1,3 +1,4 @@
+#include "GlobalResource.h"
 
 
 template <typename Resource, typename Identifier>
@@ -7,9 +8,9 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
     std::unique_ptr<Resource> resource(new Resource());
     if (!resource->loadFromFile(filename))
     {
-        mLogger->log("Missing file " + filename, LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_MISSING + filename, LOG::ERROR);
         
-        mLogger->log("Stoping!", LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_STOP, LOG::ERROR);
         exit(EXIT_FAILURE);
     }
     
@@ -19,7 +20,7 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
         mResourceMap[id].reset(resource.release());
     }
     
-    mLogger->log("Loaded file " + filename, LOG::INFO);
+    mLogger->log(GlobalResource::LOG_LOADED + filename, LOG::INFO);
 }
 
 template <typename Resource, typename Identifier>
@@ -30,9 +31,9 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
     std::unique_ptr<Resource> resource(new Resource());
     if (!resource->loadFromFile(filename, secondParam))
     {
-        mLogger->log("Missing file " + filename, LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_MISSING + filename, LOG::ERROR);
         
-        mLogger->log("Stoping!", LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_STOP, LOG::ERROR);
         exit(EXIT_FAILURE);
     }
     
@@ -42,7 +43,7 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
         mResourceMap[id].reset(resource.release());
     }
     
-    mLogger->log("Loaded file " + filename, LOG::INFO);
+    mLogger->log(GlobalResource::LOG_LOADED + filename, LOG::INFO);
 }
 
 template <typename Resource, typename Identifier>
@@ -54,9 +55,9 @@ Resource& ResourceHolder<Resource, Identifier>::get(Identifier id)
     // throwing error if not found
     if(found == mResourceMap.end())
     {
-        mLogger->log("Attempting to access a resource that wasn't loaded before", LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_UNLOADED, LOG::ERROR);
 
-        mLogger->log("Stoping!", LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_STOP, LOG::ERROR);
         exit(EXIT_FAILURE);
     }
 
@@ -72,9 +73,9 @@ const Resource& ResourceHolder<Resource, Identifier>::get(Identifier id) const
     // trowing error if not found
     if(found == mResourceMap.end())
     {
-        mLogger->log("Attempting to access a resource that wasn't loaded before", LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_UNLOADED, LOG::ERROR);
 
-        mLogger->log("Stoping!", LOG::ERROR);
+        mLogger->log(GlobalResource::LOG_STOP, LOG::ERROR);
         exit(EXIT_FAILURE);
     }
 
