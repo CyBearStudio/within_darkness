@@ -5,6 +5,11 @@ Screen::Screen(Game* game, bool blockE, bool blockU, bool blockR) : mGame(game),
 {
 }
 
+void Screen::init() 
+{
+    // virtual
+}
+
 void Screen::processEvents()
 {
 	// virtual
