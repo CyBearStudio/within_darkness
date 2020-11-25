@@ -19,7 +19,7 @@
 .MenuScreen class
 [source, C++]
 ----
-class MenuScreen : publc Screen
+class MenuScreen : public Screen
 {
 public:
     MenuScreen();
