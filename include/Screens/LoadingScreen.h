@@ -11,6 +11,7 @@ class LoadingScreen : public Screen
 {
 public:
     LoadingScreen(Game* game, bool blockE, bool blockU, bool blockR);
+    void init(); // inherited
     void ProcessEvents(); // inherited
     void update(); // inherited
     void render(); // inherited

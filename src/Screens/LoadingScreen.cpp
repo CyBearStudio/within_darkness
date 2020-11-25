@@ -6,6 +6,11 @@ LoadingScreen::LoadingScreen(Game* game, bool blockE, bool blockU, bool blockR) 
 {
 }
 
+void LoadingScreen::init() 
+{
+    
+}
+
 void LoadingScreen::ProcessEvents() 
 {
     
