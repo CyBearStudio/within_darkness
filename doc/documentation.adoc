@@ -562,3 +562,35 @@ public:
 ----
 
 
+
+== HUD screen
+
+link:screens/hudScreen.adoc[hudScreen.adoc]
+
+=== Files:
+
+* link:../include/Screens/HUDScreen.h[include/Screens/HUDScreen.h]
+
+* link:../src/Screens/HUDScreen.cpp[src/Screens/HUDScreen.cpp]
+
+=== The HUDScreen class:
+
+* inherits the Screen class
+
+* handles HUD and player menu
+
+.HUDScreen class
+[source, C++]
+----
+class HUDScreen : public Screen
+{
+public:
+    HUDScreen();
+    void init();
+    void processEvents();
+    void update();
+    void render();
+};
+----
+
+
