@@ -127,7 +127,7 @@ public:
     static const Type1 GLOBAL_VAR1;
     static const Type2 GLOBAL_VAR2;
     ...
-}
+};
 ----
 
 
@@ -254,7 +254,7 @@ private:
     Type1 mOption1;
     Type2 mOption2;
     ...
-}
+};
 ----
 
 
@@ -297,7 +297,7 @@ private:
     const bool blockEvents;
     const bool blockUpdate;
     const bool blockRender;
-}
+};
 ----
 
 
@@ -334,7 +334,7 @@ public:
 
 private:
     std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
-}
+};
 ----
 
 
@@ -376,7 +376,7 @@ private:
     ResourceHolder<Resource_1, Identifier_1> mResource_1Holder;
     ResourceHolder<Resource_2, Identifier_2> mResource_2Holder;
     ...
-}
+};
 ----
 
 
@@ -415,7 +415,7 @@ public:
     void update();
     void render();
     void registerTask(Task& task);
-}
+};
 ----
 
 
@@ -448,7 +448,7 @@ class Task
 public:
     virtual auto getId();
     virtual std::string& getFileName();
-}
+};
 ----
 
 === The LoadingTask class:
@@ -473,7 +473,7 @@ public:
 private:
     Identifier mId;
     std::string mFileName;
-}
+};
 ----
 
 === The loading::make_task function template:
@@ -526,7 +526,7 @@ public:
     void processEvents();
     void update();
     void render();
-}
+};
 ----
 
 
@@ -558,7 +558,7 @@ public:
     void processEvents();
     void update();
     void render();
-}
+};
 ----
 
 

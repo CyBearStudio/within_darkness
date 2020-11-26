@@ -30,5 +30,5 @@ public:
 
 private:
     std::map<Identifier, std::unique_ptr<Resource>> mResourceMap;
-}
+};
 ----

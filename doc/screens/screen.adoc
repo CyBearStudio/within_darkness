@@ -36,5 +36,5 @@ private:
     const bool blockEvents;
     const bool blockUpdate;
     const bool blockRender;
-}
+};
 ----

@@ -27,5 +27,5 @@ public:
     void processEvents();
     void update();
     void render();
-}
+};
 ----

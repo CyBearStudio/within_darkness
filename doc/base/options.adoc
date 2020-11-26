@@ -33,5 +33,5 @@ private:
     Type1 mOption1;
     Type2 mOption2;
     ...
-}
+};
 ----

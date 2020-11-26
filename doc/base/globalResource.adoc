@@ -30,5 +30,5 @@ public:
     static const Type1 GLOBAL_VAR1;
     static const Type2 GLOBAL_VAR2;
     ...
-}
+};
 ----
