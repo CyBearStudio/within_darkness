@@ -596,3 +596,45 @@ public:
 ----
 
 
+
+== Widget
+
+link:widgets/widget.adoc[widget.adoc]
+
+=== Files:
+
+* link:../include/Widgets/Widget.h[include/Widgets/Widget.h]
+
+* link:../src/Widgets/Widget.cpp[src/Widgets/Widget.cpp]
+
+=== The Widget class:
+
+* is abstract
+
+* represent a GUI element
+
+* stores a vector of children widgets
+
+* can be drawn which also draw children
+
+* stores its own transform
+
+.Widget class
+[source, C++]
+----
+class Widget :
+{
+public:
+    Widget();
+    // methods to transform the widget
+    // methods to manage the widget's children
+    void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
+
+private:
+    virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const = 0;
+    sf::Transform mTransform;
+    std::vector<widget*> mChildren;
+};
+----
+
+
