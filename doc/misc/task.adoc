@@ -16,7 +16,7 @@
 
 * is virtual
 
-* giva access to an identifier and a filename
+* is empty
 
 .Task class
 [source, C++]
@@ -24,8 +24,7 @@
 class Task
 {
 public:
-    virtual auto getId();
-    virtual std::string& getFileName();
+    virtual ~Task();
 };
 ----
 
