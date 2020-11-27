@@ -5,26 +5,6 @@ Screen::Screen(Game* game, bool blockE, bool blockU, bool blockR) : mGame(game),
 {
 }
 
-void Screen::init() 
-{
-    // virtual
-}
-
-void Screen::processEvents()
-{
-	// virtual
-}
-
-void Screen::update()
-{
-	// virtual
-}
-
-void Screen::render()
-{
-	// virtual
-}
-
 bool Screen::getBlockEvents()
 {
     return blockEvents;

@@ -8,10 +8,10 @@ class Screen
 {
 public:
 	Screen(Game* game, bool blockE, bool blockU, bool blockR);
-	virtual void init();
-	virtual void processEvents();
-	virtual void update();
-	virtual void render();
+	virtual void init() = 0;
+	virtual void processEvents() = 0;
+	virtual void update() = 0;
+	virtual void render() = 0;
 
 private:
     Game* mGame;
