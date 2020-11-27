@@ -34,6 +34,8 @@ This is the technical documentation for developers. One can find here every nece
 
 . link:#level-screen[Level screen]
 
+. link:#hud-screen[HUD screen]
+
 == Task list
 
 * [x] main function
