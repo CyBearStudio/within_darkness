@@ -1,4 +1,4 @@
-#include "Screen/MenuScreen.h"
+#include "Screens/MenuScreen.h"
 
 
 MenuScreen::MenuScreen(Game* game, bool blockE, bool blockU, bool blockR) : Screen(game, blockE, blockU, blockR)

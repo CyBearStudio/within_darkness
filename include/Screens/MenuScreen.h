@@ -4,7 +4,7 @@
 #include "Screens/Screen.h"
 
 
-class MenuScreen : public MenuScreen
+class MenuScreen : public Screen
 {
 public:
     MenuScreen(Game* game, bool blockE, bool blockU, bool blockR);
