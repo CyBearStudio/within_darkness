@@ -8,10 +8,10 @@ class LevelScreen : public Screen
 {
 public:
     LevelScreen(Game* game, bool blockE, bool blockU, bool blockR);
-    void init(); // inherited
-    void ProcessEvents(); // inherited
-    void update(); // inherited
-    void render(); // inherited
+    void init() override;
+    void processEvents() override;
+    void update() override;
+    void render() override;
 };
 
 #endif // LEVELSCREEN_H_INCLUDED

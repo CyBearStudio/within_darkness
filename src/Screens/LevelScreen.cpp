@@ -11,7 +11,7 @@ void LevelScreen::init()
     
 }
 
-void LevelScreen::ProcessEvents() 
+void LevelScreen::processEvents() 
 {
     
 }

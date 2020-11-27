@@ -11,10 +11,10 @@ class LoadingScreen : public Screen
 {
 public:
     LoadingScreen(Game* game, bool blockE, bool blockU, bool blockR);
-    void init(); // inherited
-    void ProcessEvents(); // inherited
-    void update(); // inherited
-    void render(); // inherited
+    void init() override;
+    void processEvents() override;
+    void update() override;
+    void render() override;
     void registerTask(Task& task); // register a new task to be processed
 
 private:

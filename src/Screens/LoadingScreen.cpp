@@ -11,7 +11,7 @@ void LoadingScreen::init()
     
 }
 
-void LoadingScreen::ProcessEvents() 
+void LoadingScreen::processEvents() 
 {
     
 }

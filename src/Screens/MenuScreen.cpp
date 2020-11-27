@@ -10,7 +10,7 @@ void MenuScreen::init()
     
 }
 
-void MenuScreen::ProcessEvents() 
+void MenuScreen::processEvents() 
 {
     
 }
