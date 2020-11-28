@@ -27,8 +27,8 @@ class Widget
 {
 public:
     Widget();
-    // methods to transform the widget
-    // methods to manage the widget's children
+    // ... methods to transform the widget
+    // ... methods to manage the widget's children
     void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
 
 private:
