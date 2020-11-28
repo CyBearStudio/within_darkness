@@ -1,0 +1,35 @@
+== Anchor
+
+//link:widgets/anchor.adoc[anchor.adoc]
+
+=== Files:
+
+* link:../../include/Widgets/Anchor.h[include/Widgets/Anchor.h]
+
+* link:../../src/Widgets/Anchor.cpp[src/Widgets/Anchor.cpp]
+
+=== The Anchor class:
+
+* hold a reference to a Widget
+
+* sets its transform to match window depending on anchor type
+
+* sets origin of Widget's drawables depending on anchor type
+
+* can draw child widget
+
+.Anchor class
+[source, C++]
+----
+class Anchor
+{
+public:
+    // ... methods to transform the anchor
+    // ... methods to manage Anchor's Widget
+    void draw(sf::RenderTarget& target);
+
+private:
+    sf::Transform mTransform;
+    Widget* mWidget;
+};
+----

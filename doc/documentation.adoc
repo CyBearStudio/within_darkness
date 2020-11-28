@@ -36,6 +36,12 @@ This is the technical documentation for developers. One can find here every nece
 
 . link:#hud-screen[HUD screen]
 
+. link:#widget[Widget]
+
+. link:#anchor[Anchor]
+
+
+
 == Task list
 
 * [x] main function
@@ -61,6 +67,12 @@ This is the technical documentation for developers. One can find here every nece
 * [ ] MenuScreen class
 
 * [ ] LevelScreen class
+
+* [ ] HUDScreen class
+
+* [ ] Widget class
+
+* [ ] Anchor class
 
 
 
@@ -618,21 +630,62 @@ link:widgets/widget.adoc[widget.adoc]
 
 * stores its own transform
 
+* can set origin of children and eventually stored drawables depending on specifiers
+
 .Widget class
 [source, C++]
 ----
-class Widget :
+class Widget
 {
 public:
     Widget();
-    // methods to transform the widget
-    // methods to manage the widget's children
+    // ... methods to transform the widget
+    // ... methods to manage the widget's children
     void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
+    virtual void setOrigin(anchors::id x, anchors::id y);
 
 private:
     virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const = 0;
     sf::Transform mTransform;
     std::vector<widget*> mChildren;
+};
+----
+
+
+
+== Anchor
+
+link:widgets/anchor.adoc[anchor.adoc]
+
+=== Files:
+
+* link:../include/Widgets/Anchor.h[include/Widgets/Anchor.h]
+
+* link:../src/Widgets/Anchor.cpp[src/Widgets/Anchor.cpp]
+
+=== The Anchor class:
+
+* hold a reference to a Widget
+
+* sets its transform to match window depending on anchor type
+
+* sets origin of Widget's drawables depending on anchor type
+
+* can draw child widget
+
+.Anchor class
+[source, C++]
+----
+class Anchor
+{
+public:
+    // ... methods to transform the anchor
+    // ... methods to manage Anchor's Widget
+    void draw(sf::RenderTarget& target);
+
+private:
+    sf::Transform mTransform;
+    Widget* mWidget;
 };
 ----
 
