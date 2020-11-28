@@ -20,6 +20,8 @@
 
 * stores its own transform
 
+* can set origin of children and eventually stored drawables depending on specifiers
+
 .Widget class
 [source, C++]
 ----
@@ -30,6 +32,7 @@ public:
     // ... methods to transform the widget
     // ... methods to manage the widget's children
     void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
+    virtual void setOrigin(anchors::id x, anchors::id y);
 
 private:
     virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const = 0;
