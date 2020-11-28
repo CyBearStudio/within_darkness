@@ -5,7 +5,7 @@
 #include <vector>
 
 
-class Widget :
+class Widget
 {
     Widget();
 
