@@ -23,7 +23,7 @@
 .Widget class
 [source, C++]
 ----
-class Widget :
+class Widget
 {
 public:
     Widget();
