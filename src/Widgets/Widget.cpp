@@ -1,7 +1,7 @@
 #include "Widgets/Widget.h"
 
 
-Widget::Widget() 
+Widget::Widget() : mTransform()
 {
     
 }
