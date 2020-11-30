@@ -642,11 +642,12 @@ public:
     // ... methods to transform the widget
     // ... methods to manage the widget's children
     void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
-    virtual void setOrigin(Anchors::ID anchor);
+    virtual void setAnchor(Anchors::ID anchor);
 
 private:
     virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const = 0;
     sf::Transform mTransform;
+    Anchors::ID mAnchor;
     std::vector<widget*> mChildren;
 };
 ----
