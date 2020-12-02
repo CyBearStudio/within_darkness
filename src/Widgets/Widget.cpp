@@ -6,6 +6,15 @@ Widget::Widget() : Transformable(), Drawable(), mAnchor(Anchors::Default)
     
 }
 
+void Widget::attachChild(Widget* child) 
+{
+    // adding child to children
+    mChildren.insert(child);
+
+    // updating children transforms
+    transformChildren();
+}
+
 void Widget::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     // combine the parent transform with the widget's one
@@ -35,10 +44,27 @@ void Widget::update()
 
 void Widget::setAnchor(Anchors::Flags anchor) 
 {
-    mAnchor = anchor;
+    if (anchor != mAnchor)
+    {
+        // set new anchor
+        mAnchor = anchor;
+
+        // update children transform
+        transformChildren();
+    }
+}
+
+sf::FloatRect Widget::getBoundingRect() const
+{
+    return sf::Rect();
 }
 
 void Widget::onUpdate() 
+{
+    // nothing here
+}
+
+void Widget::tranformChildren() 
 {
     // nothing here
 }

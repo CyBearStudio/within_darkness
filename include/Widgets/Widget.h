@@ -4,6 +4,7 @@
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/Rect.hpp>
 
 #include <vector>
 
@@ -39,14 +40,17 @@ public:
     Widget();
 
     // ... methods to manage the widget's children
+    void attachChild(Widget* child);
     
     void update();
     void setAnchor(Anchors::Flags anchor);
+    virtual sf::FloatRect getBoundingRect() const;
 
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
+    virtual void tranformChildren();
     Anchors::Flags mAnchor;
     std::vector<Widget*> mChildren;
 };
