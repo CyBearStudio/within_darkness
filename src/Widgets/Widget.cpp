@@ -21,7 +21,24 @@ void Widget::draw(sf::RenderTarget& target, const sf::Transform& parentTransform
     }
 }
 
+void Widget::update() 
+{
+    // let the widget update itself
+    onUpdate();
+
+    // update its children
+    for (std::size_t i = 0; i < mChildren.size(); ++i)
+    {
+        mChildren[i]->update();
+    }
+}
+
 void Widget::setAnchor(Uint32 anchor) 
 {
     mAnchor = anchor;
+}
+
+void Widget::onUpdate() 
+{
+    // nothing here
 }

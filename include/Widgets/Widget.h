@@ -32,6 +32,7 @@ namespace Anchors
 
 class Widget
 {
+public:
     Widget();
 
     // ... methods to transform the widget
@@ -39,10 +40,12 @@ class Widget
     // ... methods to manage the widget's children
 
     void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
+    void update();
     void setAnchor(Uint32 anchor);
 
 private:
     virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const = 0;
+    virtual void onUpdate();
     sf::Transform mTransform;
     Uint32 mAnchor;
     std::vector<Widget*> mChildren;
