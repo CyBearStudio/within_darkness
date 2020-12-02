@@ -1,7 +1,7 @@
 #include "Widgets/Widget.h"
 
 
-Widget::Widget() : mTransform()
+Widget::Widget() : mTransform(), mAnchor(Anchors::Default)
 {
     
 }
@@ -19,4 +19,9 @@ void Widget::draw(sf::RenderTarget& target, const sf::Transform& parentTransform
     {
         mChildren[i]->draw(target, combinedTransform);
     }
+}
+
+void Widget::setAnchor(Uint32 anchor) 
+{
+    mAnchor = anchor;
 }
