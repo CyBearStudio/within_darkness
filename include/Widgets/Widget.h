@@ -10,7 +10,7 @@
 
 namespace Anchors
 {
-    enum ID
+    enum Flags
     {
         Left = 1 << 0,
         Right = 1 << 1,
@@ -41,13 +41,13 @@ public:
     // ... methods to manage the widget's children
     
     void update();
-    void setAnchor(Anchors::ID anchor);
+    void setAnchor(Anchors::Flags anchor);
 
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
-    Anchors::ID mAnchor;
+    Anchors::Flags mAnchor;
     std::vector<Widget*> mChildren;
 };
 

@@ -33,7 +33,7 @@ void Widget::update()
     }
 }
 
-void Widget::setAnchor(Anchors::ID anchor) 
+void Widget::setAnchor(Anchors::Flags anchor) 
 {
     mAnchor = anchor;
 }
