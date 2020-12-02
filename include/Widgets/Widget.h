@@ -1,13 +1,16 @@
 #ifndef WIDGET_H_INCLUDED
 #define WIDGET_H_INCLUDED
 
-#include <SFML/Graphics.hpp>
+#include <SFML/System/NonCopyable.hpp>
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Graphics/Drawable.hpp>
+
 #include <vector>
 
 
 namespace Anchors
 {
-    enum
+    enum ID
     {
         Left = 1 << 0,
         Right = 1 << 1,
@@ -30,24 +33,21 @@ namespace Anchors
     };
 }
 
-class Widget
+class Widget : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
 {
 public:
     Widget();
 
-    // ... methods to transform the widget
-
     // ... methods to manage the widget's children
-
-    void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
+    
     void update();
-    void setAnchor(Uint32 anchor);
+    void setAnchor(Anchors::ID anchor);
 
 private:
-    virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const = 0;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
-    sf::Transform mTransform;
-    Uint32 mAnchor;
+    Anchors::ID mAnchor;
     std::vector<Widget*> mChildren;
 };
 

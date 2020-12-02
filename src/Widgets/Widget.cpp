@@ -1,23 +1,23 @@
 #include "Widgets/Widget.h"
 
 
-Widget::Widget() : mTransform(), mAnchor(Anchors::Default)
+Widget::Widget() : Transformable(), Drawable(), mAnchor(Anchors::Default)
 {
     
 }
 
-void Widget::draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const
+void Widget::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     // combine the parent transform with the widget's one
-    sf::Transform combinedTransform = parentTransform * mTransform;
+    states.transform *= getTransform();
 
     // let the widget draw itself
-    onDraw(target, combinedTransform);
+    onDraw(target, states);
 
     // draw its children
     for (std::size_t i = 0; i < mChildren.size(); ++i)
     {
-        mChildren[i]->draw(target, combinedTransform);
+        mChildren[i]->draw(target, states);
     }
 }
 
@@ -33,7 +33,7 @@ void Widget::update()
     }
 }
 
-void Widget::setAnchor(Uint32 anchor) 
+void Widget::setAnchor(Anchors::ID anchor) 
 {
     mAnchor = anchor;
 }
