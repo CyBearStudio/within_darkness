@@ -38,8 +38,6 @@ This is the technical documentation for developers. One can find here every nece
 
 . link:#widget[Widget]
 
-. link:#anchor[Anchor]
-
 
 
 == Task list
@@ -71,8 +69,6 @@ This is the technical documentation for developers. One can find here every nece
 * [ ] HUDScreen class
 
 * [ ] Widget class
-
-* [ ] Anchor class
 
 
 
@@ -652,42 +648,18 @@ private:
 };
 ----
 
+=== The Anchors flags and functions:
 
+* anchors flags specify anchor type hrozontally and vertically
 
-== Anchor
+* anchors flags are binary flags to allow binary operations
 
-link:widgets/anchor.adoc[anchor.adoc]
+* the anchor function set widget position based on anchor flag and render target
 
-=== Files:
-
-* link:../include/Widgets/Anchor.h[include/Widgets/Anchor.h]
-
-* link:../src/Widgets/Anchor.cpp[src/Widgets/Anchor.cpp]
-
-=== The Anchor class:
-
-* hold a reference to a Widget
-
-* sets its transform to match window depending on anchor type
-
-* sets origin of Widget's drawables depending on anchor type
-
-* can draw child widget
-
-.Anchor class
+.anchor function
 [source, C++]
 ----
-class Anchor
-{
-public:
-    // ... methods to transform the anchor
-    // ... methods to manage Anchor's Widget
-    void draw(sf::RenderTarget& target);
-
-private:
-    sf::Transform mTransform;
-    Widget* mWidget;
-};
+void Anchors::anchor(Widget& widget, const RenderTarget& target, Anchors::Flags flag);
 ----
 
 

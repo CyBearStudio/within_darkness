@@ -41,3 +41,17 @@ private:
     std::vector<Widget*> mChildren;
 };
 ----
+
+=== The Anchors flags and functions:
+
+* anchors flags specify anchor type hrozontally and vertically
+
+* anchors flags are binary flags to allow binary operations
+
+* the anchor function set widget position based on anchor flag and render target
+
+.anchor function
+[source, C++]
+----
+void Anchors::anchor(Widget& widget, const RenderTarget& target, Anchors::Flags flag);
+----
