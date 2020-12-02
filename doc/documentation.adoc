@@ -628,9 +628,9 @@ link:widgets/widget.adoc[widget.adoc]
 
 * can be drawn which also draw children
 
-* stores its own transform
+* implements SFML Transformable, Drawable and NonCopyable base classes
 
-* can set origin of children and eventually stored drawables depending on specifier
+* defines base virtual methods for children
 
 .Widget class
 [source, C++]
@@ -639,16 +639,16 @@ class Widget
 {
 public:
     Widget();
-    // ... methods to transform the widget
     // ... methods to manage the widget's children
-    void draw(sf::RenderTarget& target, const sf::Transform& parentTransform) const;
-    virtual void setAnchor(Anchors::ID anchor);
+    void update();
+    void setAnchor(Anchors::Flags anchor);
 
 private:
-    virtual void onDraw(sf::RenderTarget& target, const sf::Transform& transform) const = 0;
-    sf::Transform mTransform;
-    Anchors::ID mAnchor;
-    std::vector<widget*> mChildren;
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
+    virtual void onUpdate();
+    Anchors::Flags mAnchor;
+    std::vector<Widget*> mChildren;
 };
 ----
 
