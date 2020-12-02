@@ -5,7 +5,7 @@
 
 namespace Anchors
 {
-    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag) 
+    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag, float offset = 0.f) 
     {
         // defining useful values
         sf::Vector2f targetSize(target.getSize());
@@ -16,11 +16,11 @@ namespace Anchors
         switch (flag & (Left | Right | CenterX))
         {
             case Left:
-                pos.x = 0.f;
+                pos.x = 0.f + offset;
                 break;
 
             case Right:
-                pos.x = targetSize.x - size.width;
+                pos.x = targetSize.x - size.width - offset;
                 break;
 
             case CenterX:
@@ -36,11 +36,11 @@ namespace Anchors
         switch (flag & (Up | Down | CenterY))
         {
             case Up:
-                pos.y = 0.f;
+                pos.y = 0.f + offset;
                 break;
 
             case Down:
-                pos.y = targetSize.y - size.height;
+                pos.y = targetSize.y - size.height - offset;
                 break;
 
             case CenterY:

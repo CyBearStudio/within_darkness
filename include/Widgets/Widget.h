@@ -36,7 +36,7 @@ namespace Anchors
         Default = UpLeft
     };
 
-    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag);
+    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag, float offset = 0.f);
 }
 
 class Widget : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
