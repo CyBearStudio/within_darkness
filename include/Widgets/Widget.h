@@ -5,9 +5,12 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
 #include <vector>
 
+
+class Widget;
 
 namespace Anchors
 {
@@ -32,6 +35,8 @@ namespace Anchors
 
         Default = UpLeft
     };
+
+    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag);
 }
 
 class Widget : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
@@ -50,7 +55,7 @@ private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
-    virtual void tranformChildren();
+    virtual void transformChildren();
     Anchors::Flags mAnchor;
     std::vector<Widget*> mChildren;
 };

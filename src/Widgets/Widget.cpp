@@ -1,5 +1,61 @@
 #include "Widgets/Widget.h"
 
+#include <SFML/System/Vector2.hpp>
+
+
+namespace Anchors
+{
+    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag) 
+    {
+        // defining useful values
+        sf::Vector2f targetSize(target.getSize());
+        sf::FloatRect size(widget.getBoundingRect());
+        sf::Vector2f pos;
+
+        // determine x position
+        switch (flag & (Left | Right | CenterX))
+        {
+            case Left:
+                pos.x = 0.f;
+                break;
+
+            case Right:
+                pos.x = targetSize.x - size.width;
+                break;
+
+            case CenterX:
+                pos.x = (targetSize.x / 2) - (size.width / 2);
+                break;
+
+            default:
+                pos.x = 0.f;
+                break;
+        }
+
+        // determine y position
+        switch (flag & (Up | Down | CenterY))
+        {
+            case Up:
+                pos.y = 0.f;
+                break;
+
+            case Down:
+                pos.y = targetSize.y - size.height;
+                break;
+
+            case CenterY:
+                pos.y = (targetSize.y / 2) - (size.height / 2);
+                break;
+
+            default:
+                pos.y = 0.f;
+                break;
+        }
+
+        // apply position to widget
+        widget.setPosition(pos);
+    }
+}
 
 Widget::Widget() : Transformable(), Drawable(), mAnchor(Anchors::Default)
 {
@@ -9,7 +65,7 @@ Widget::Widget() : Transformable(), Drawable(), mAnchor(Anchors::Default)
 void Widget::attachChild(Widget* child) 
 {
     // adding child to children
-    mChildren.insert(child);
+    mChildren.push_back(child);
 
     // updating children transforms
     transformChildren();
@@ -56,7 +112,7 @@ void Widget::setAnchor(Anchors::Flags anchor)
 
 sf::FloatRect Widget::getBoundingRect() const
 {
-    return sf::Rect();
+    return sf::FloatRect();
 }
 
 void Widget::onUpdate() 
@@ -64,7 +120,7 @@ void Widget::onUpdate()
     // nothing here
 }
 
-void Widget::tranformChildren() 
+void Widget::transformChildren() 
 {
     // nothing here
 }
