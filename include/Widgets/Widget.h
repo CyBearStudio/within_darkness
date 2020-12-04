@@ -42,8 +42,7 @@ namespace Anchors
 class Widget : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
 {
 public:
-    Widget();
-    Widget(Anchors::Flags anchor);
+    Widget(Anchors::Flags anchor = Anchors::Default);
 
     // ... methods to manage the widget's children
     void attachChild(Widget* child);

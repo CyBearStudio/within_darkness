@@ -56,11 +56,6 @@ namespace Anchors
     }
 }
 
-Widget::Widget() : Transformable(), Drawable(), mAnchor(Anchors::Default)
-{
-    
-}
-
 Widget::Widget(Anchors::Flags anchor) : Transformable(), Drawable(), mAnchor(anchor)
 {
     
