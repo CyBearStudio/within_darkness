@@ -25,7 +25,7 @@ class VBoxLayout : public Widget
 {
 public:
     VBoxLayout();
-    virtual sf::FloatRect geBoundingRect() const override;
+    virtual sf::FloatRect getBoundingRect() const override;
     void setOffset(float offset);
 
 private:

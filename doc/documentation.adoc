@@ -704,7 +704,7 @@ link:widgets/boxLayout.adoc[boxLayout.adoc]
 class VBoxLayout : public Widget
 {
 public:
-    virtual sf::FloatRect geBoundingRect() const override;
+    virtual sf::FloatRect getBoundingRect() const override;
 
 private:
     virtual void transformChildren() override;
