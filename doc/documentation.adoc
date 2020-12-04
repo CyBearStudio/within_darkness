@@ -679,3 +679,36 @@ void Anchors::anchor(Widget& widget, const RenderTarget& target, Anchors::Flags 
 *** TextButton
 
 
+
+== Box Layout
+
+link:widgets/boxLayout.adoc[boxLayout.adoc]
+
+=== Files:
+
+* link:../include/Widgets/VBoxLayout.h[include/Widgets/VBoxLayout.h]
+
+* link:../src/Widgets/VBoxLayout.cpp[src/Widgets/VBoxLayout.cpp]
+
+=== The VBoxLayout class:
+
+* inherits the Widget class
+
+* transforms children widgets to match a vertical box layout
+
+* aligns children widgets correctly depending on anchor
+
+.VBoxLayout class
+[source, C++]
+----
+class VBoxLayout : public Widget
+{
+public:
+    virtual sf::FloatRect geBoundingRect() const override;
+
+private:
+    virtual void transformChildren() override;
+};
+----
+
+
