@@ -43,6 +43,7 @@ class Widget : public sf::Transformable, public sf::Drawable, private sf::NonCop
 {
 public:
     Widget();
+    Widget(Anchors::Flags anchor);
 
     // ... methods to manage the widget's children
     void attachChild(Widget* child);

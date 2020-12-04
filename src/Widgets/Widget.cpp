@@ -61,6 +61,11 @@ Widget::Widget() : Transformable(), Drawable(), mAnchor(Anchors::Default)
     
 }
 
+Widget::Widget(Anchors::Flags anchor) : Transformable(), Drawable(), mAnchor(anchor)
+{
+    
+}
+
 void Widget::attachChild(Widget* child) 
 {
     // adding child to children
