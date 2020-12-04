@@ -55,3 +55,19 @@ private:
 ----
 void Anchors::anchor(Widget& widget, const RenderTarget& target, Anchors::Flags flag);
 ----
+
+=== Widget class hierarchy
+
+* Widget
+
+** VBoxLayout
+
+** HBoxLayout
+
+** ProgressBar
+
+** AButton
+
+*** SpriteButton
+
+*** TextButton
