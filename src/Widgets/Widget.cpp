@@ -9,7 +9,6 @@ namespace Anchors
     {
         // defining useful values
         sf::Vector2f targetSize(target.getSize());
-        sf::FloatRect size(widget.getBoundingRect());
         sf::Vector2f pos;
 
         // determine x position
@@ -20,11 +19,11 @@ namespace Anchors
                 break;
 
             case Right:
-                pos.x = targetSize.x - size.width - offset;
+                pos.x = targetSize.x - offset;
                 break;
 
             case CenterX:
-                pos.x = (targetSize.x / 2) - (size.width / 2);
+                pos.x = targetSize.x / 2;
                 break;
 
             default:
@@ -40,11 +39,11 @@ namespace Anchors
                 break;
 
             case Down:
-                pos.y = targetSize.y - size.height - offset;
+                pos.y = targetSize.y - offset;
                 break;
 
             case CenterY:
-                pos.y = (targetSize.y / 2) - (size.height / 2);
+                pos.y = targetSize.y / 2;
                 break;
 
             default:
