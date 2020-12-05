@@ -793,3 +793,46 @@ private:
 ----
 
 
+
+== Button
+
+link:widgets/button.adoc[button.adoc]
+
+=== Files:
+
+* link:../include/Widgets/AButton.h[include/Widgets/AButton.h]
+
+* link:../src/Widgets/AButton.cpp[src/Widgets/AButton.cpp]
+
+=== The AButton class:
+
+* is abstract
+
+* represents a button
+
+* can loose and gain focus
+
+* can set button
+
+* stores a button id
+
+.AButton class
+[source, C++]
+----
+class AButton : public Widget
+{
+public:
+    AButton();
+    void lostFocus();
+    void gainedFocus();
+    Button::ID getId();
+    void setId(Button::ID id);
+
+private:
+    virtual void setButton() = 0;
+    bool mFocused;
+    Button::ID mId;
+};
+----
+
+
