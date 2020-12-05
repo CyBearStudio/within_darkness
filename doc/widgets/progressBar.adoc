@@ -1,0 +1,38 @@
+== Progress bar
+
+//link:widgets/progressBar.adoc[progressBar.adoc]
+
+=== Files:
+
+* link:../../include/Widgets/ProgressBar.h[include/Widgets/ProgressBar.h]
+
+* link:../../src/Widgets/ProgressBar.cpp[src/Widgets/ProgressBar.cpp]
+
+=== The ProgressBar class:
+
+* inherits the Widget class
+
+* handles 2 RectangleShape objects to draw a progress bar
+
+* sets progress depending on float value between 0 and 1
+
+* sets size of bar depending Vector2f value
+
+.ProgressBar class
+[source, C++]
+----
+class ProgressBar : public Widget
+{
+public:
+    ProgressBar();
+    virtual sf::FloatRect getBoundingRect() const override;
+    void setProgress(float progress);
+    void setSize(sf::Vector2f size);
+    void setSize(float width, float height);
+
+private:
+    virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    float mProgress;
+    sf::Vector2f mSize;
+};
+----
