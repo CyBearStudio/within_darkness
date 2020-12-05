@@ -688,7 +688,11 @@ link:widgets/boxLayout.adoc[boxLayout.adoc]
 
 * link:../include/Widgets/VBoxLayout.h[include/Widgets/VBoxLayout.h]
 
+* link:../include/Widgets/HBoxLayout.h[include/Widgets/HBoxLayout.h]
+
 * link:../src/Widgets/VBoxLayout.cpp[src/Widgets/VBoxLayout.cpp]
+
+* link:../src/Widgets/HBoxLayout.cpp[src/Widgets/HBoxLayout.cpp]
 
 === The VBoxLayout class:
 
@@ -698,16 +702,47 @@ link:widgets/boxLayout.adoc[boxLayout.adoc]
 
 * aligns children widgets correctly depending on anchor
 
+* leave spaces between children widgets depending on offset value
+
 .VBoxLayout class
 [source, C++]
 ----
 class VBoxLayout : public Widget
 {
 public:
+    VBoxLayout();
     virtual sf::FloatRect getBoundingRect() const override;
+    void setOffset(float offset);
 
 private:
     virtual void transformChildren() override;
+    float mOffset;
+};
+----
+
+=== The HBoxLayout class:
+
+* inherits the Widget class
+
+* transforms children widgets to match an horizontal box layout
+
+* aligns children widgets correctly depending on anchor
+
+* leave spaces between children widgets depending on offset value
+
+.HBoxLayout class
+[source, C++]
+----
+class HBoxLayout : public Widget
+{
+public:
+    HBoxLayout();
+    virtual sf::FloatRect getBoundingRect() const override;
+    void setOffset(float offset);
+
+private:
+    virtual void transformChildren() override;
+    float mOffset;
 };
 ----
 
