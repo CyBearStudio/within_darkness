@@ -764,6 +764,8 @@ link:widgets/progressBar.adoc[progressBar.adoc]
 
 * handles 2 RectangleShape objects to draw a progress bar
 
+* can set bar
+
 * sets progress depending on float value between 0 and 1
 
 * sets size of bar depending Vector2f value
@@ -782,8 +784,11 @@ public:
 
 private:
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    void setBar();
     float mProgress;
     sf::Vector2f mSize;
+    sf::RectangleShape mOutsideRect;
+    sf::RectangleShape mInsideRect;
 };
 ----
 
