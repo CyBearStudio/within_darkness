@@ -802,7 +802,15 @@ link:widgets/button.adoc[button.adoc]
 
 * link:../include/Widgets/AButton.h[include/Widgets/AButton.h]
 
+* link:../include/Widgets/SpriteButton.h[include/Widgets/SpriteButton.h]
+
+* link:../include/Widgets/TextButton.h[include/Widgets/TextButton.h]
+
 * link:../src/Widgets/AButton.cpp[src/Widgets/AButton.cpp]
+
+* link:../src/Widgets/SpriteButton.cpp[src/Widgets/SpriteButton.cpp]
+
+* link:../src/Widgets/TextButton.cpp[src/Widgets/TextButton.cpp]
 
 === The AButton class:
 
@@ -832,6 +840,71 @@ private:
     virtual void setButton() = 0;
     bool mFocused;
     Button::ID mId;
+};
+----
+
+=== The SpriteButton class:
+
+* inherits the AButton class
+
+* overrides setButton method
+
+* represents a sprite as button
+
+* stores a Sprite object
+
+* stores 2 texture rects (for focused and unfocused states)
+
+* can set sprite texture
+
+.SpriteButton class
+[source, C++]
+----
+class SpriteButton : public AButton
+{
+public:
+    SpriteButton();
+    void setTexture(Textures::ID id);
+    void setFocusedRect(sf::IntRect rect);
+    void setUnfocusedRect(sf::IntRect rect);
+
+private:
+    virtual void setButton() override;
+    sf::Sprite mSprite;
+    sf::IntRect mFocusedRect;
+    sf::IntRect mUnfocusedRect;
+};
+----
+
+=== The TextButton class:
+
+* inherits the AButton class
+
+* overrides setButton method
+
+* represents a text as button
+
+* stores a Text object and a RectangleShape object
+
+* stores a float for outline thickness
+
+* can set text string and font
+
+.TextButton class
+[source, C++]
+----
+class TextButton : public AButton
+{
+public:
+    TextButton();
+    void setString(const std::string& string);
+    void setFont(Fonts::ID id);
+    void setOutlineThickness(float thickness);
+
+private:
+    virtual void setButton() override;
+    sf::Text mText;
+    float mOutlineThickness;
 };
 ----
 
