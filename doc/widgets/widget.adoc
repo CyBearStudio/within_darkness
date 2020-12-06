@@ -64,7 +64,11 @@ void Anchors::anchor(Widget& widget, const RenderTarget& target, Anchors::Flags 
 
 ** HBoxLayout
 
-** ProgressBar
+** AProgressBar
+
+*** ShapeProgressBar
+
+*** SpriteProgressBar
 
 ** AButton
 

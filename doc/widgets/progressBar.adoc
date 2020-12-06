@@ -4,40 +4,97 @@
 
 === Files:
 
-* link:../../include/Widgets/ProgressBar.h[include/Widgets/ProgressBar.h]
+* link:../../include/Widgets/AProgressBar.h[include/Widgets/AProgressBar.h]
 
-* link:../../src/Widgets/ProgressBar.cpp[src/Widgets/ProgressBar.cpp]
+* link:../../include/Widgets/ShapeProgressBar.h[include/Widgets/ShapeProgressBar.h]
+
+* link:../../include/Widgets/SpriteProgressBar.h[include/Widgets/SpriteProgressBar.h]
+
+* link:../../src/Widgets/AProgressBar.cpp[src/Widgets/AProgressBar.cpp]
+
+* link:../../src/Widgets/ShapeProgressBar.cpp[src/Widgets/ShapeProgressBar.cpp]
+
+* link:../../src/Widgets/SpriteProgressBar.cpp[src/Widgets/SpriteProgressBar.cpp]
 
 === The ProgressBar class:
 
+* is abstract
+
 * inherits the Widget class
 
-* handles 2 RectangleShape objects to draw a progress bar
-
-* can set bar
+* has abstract method setBar
 
 * sets progress depending on float value between 0 and 1
 
-* sets size of bar depending Vector2f value
-
-.ProgressBar class
+.AProgressBar class
 [source, C++]
 ----
-class ProgressBar : public Widget
+class AProgressBar : public Widget
 {
 public:
-    ProgressBar();
-    virtual sf::FloatRect getBoundingRect() const override;
+    AProgressBar();
     void setProgress(float progress);
+
+private:
+    virtual void setBar() = 0;
+    float mProgress;
+};
+----
+
+=== The ShapeProgressBar class:
+
+* inherits the AProgressBar class
+
+* handles 2 RectangleShape objects to draw a progress bar
+
+* overrides setBar method
+
+* sets size of bar depending Vector2f value
+
+.ShapeProgressBar class
+[source, C++]
+----
+class ShapeProgressBar : public ProgressBar
+{
+public:
+    ShapeProgressBar();
     void setSize(sf::Vector2f size);
     void setSize(float width, float height);
 
 private:
-    virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const override;
-    void setBar();
-    float mProgress;
+    virtual void setBar() override;
     sf::Vector2f mSize;
     sf::RectangleShape mOutsideRect;
     sf::RectangleShape mInsideRect;
+};
+----
+
+=== The SpriteProgressBar class:
+
+* inherits the AProgressBar class
+
+* handles 2 Sprite object, a texture id and 2 IntRect objects to draw a progress bar
+
+* overrides setBar method
+
+* sets scale of bar depending Vector2f value
+
+.SpriteProgressBar class
+[source, C++]
+----
+class ShapeProgressBar : public ProgressBar
+{
+public:
+    ShapeProgressBar();
+    void setScale(sf::Vector2f size);
+    void setScale(float width, float height);
+
+private:
+    virtual void setBar() override;
+    sf::Vector2f mScale;
+    sf::Sprite mOutsideSprite;
+    sf::Sprite mInsideSprite;
+    sf::IntRect mOutsideRect;
+    sf::IntRect mInsideRect;
 };
 ----
