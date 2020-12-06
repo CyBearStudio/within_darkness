@@ -37,6 +37,7 @@ private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
+    virtual void updateTransform();
     Anchors::Flags mAnchor;
     std::vector<Widget*> mChildren;
 };
