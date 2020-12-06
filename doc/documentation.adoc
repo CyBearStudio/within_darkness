@@ -38,6 +38,12 @@ This is the technical documentation for developers. One can find here every nece
 
 . link:#widget[Widget]
 
+. link:#box-layout[Box layout]
+
+. link:#progress-bar[Progress bar]
+
+. link:#button[Button]
+
 
 
 == Task list
@@ -69,6 +75,22 @@ This is the technical documentation for developers. One can find here every nece
 * [ ] HUDScreen class
 
 * [ ] Widget class
+
+* [ ] VBoxLayout class
+
+* [ ] HBoxLayout class
+
+* [ ] AProgressBar class
+
+* [ ] ShapeProgressBar class
+
+* [ ] SpriteProgressBar class
+
+* [ ] AButton class
+
+* [ ] SpriteButton class
+
+* [ ] TextButton class
 
 
 
