@@ -919,6 +919,8 @@ private:
 
 * can set sprite texture
 
+* can be scaled
+
 .SpriteButton class
 [source, C++]
 ----
@@ -929,12 +931,15 @@ public:
     void setTexture(Textures::ID id);
     void setFocusedRect(sf::IntRect rect);
     void setUnfocusedRect(sf::IntRect rect);
+    void setScale(sf::Vector2f size);
+    void setScale(float width, float height);
 
 private:
     virtual void setButton() override;
     sf::Sprite mSprite;
     sf::IntRect mFocusedRect;
     sf::IntRect mUnfocusedRect;
+    sf::Vector2f mScale;
 };
 ----
 
@@ -950,6 +955,8 @@ private:
 
 * stores a float for outline thickness
 
+* stores a float for offset (minimal gap between text and rectangle shape edges)
+
 * can set text string and font
 
 .TextButton class
@@ -962,11 +969,13 @@ public:
     void setString(const std::string& string);
     void setFont(Fonts::ID id);
     void setOutlineThickness(float thickness);
+    void setOffset(float offset);
 
 private:
     virtual void setButton() override;
     sf::Text mText;
     float mOutlineThickness;
+    float mOffset;
 };
 ----
 
