@@ -66,8 +66,73 @@ void Widget::attachChild(Widget* child)
     // adding child to children
     mChildren.push_back(child);
 
-    // updating children transforms
-    transformChildren();
+    // updating transforms
+    updateTransform();
+}
+
+void Widget::detachChild(Widget* child) 
+{
+    // finding child if in children and removing all its occurences
+    for (std::size_t i = 0; i < mChildren.size(); ++i)
+    {
+        if(mChildren[i] == child)
+        {
+            mChildren.erase(mChildren.begin() + i);
+        }
+    }
+
+    // updating transforms
+    updateTransform();
+}
+
+void Widget::addParent(Widget* parent) 
+{
+    // adding parent to parents
+    mParents.push_back(child);
+
+    // updating transforms
+    parent->updateTransform();
+}
+
+void Widget::removeParent(Widget* parent) 
+{
+    // finding parent if in parents and removing all its occurences
+    for (std::size_t i = 0; i < mParents.size(); ++i)
+    {
+        if(mParents[i] == child)
+        {
+            mParents.erase(mParents.begin() + i);
+        }
+    }
+
+    // updating transforms
+    parent->updateTransform();
+}
+
+void Widget::make_parent(Widget* parent, Widget* child) 
+{
+    if (parent != nullptr)
+    {
+        child->addParent(parent);
+    }
+
+    if (child != nullptr)
+    {
+        parent->attachChild(child);
+    }
+}
+
+void Widget::revoke_parent(Widget* parent, Widget* child) 
+{
+    if (parent != nullptr)
+    {
+        child->removeParent(parent);
+    }
+
+    if (child != nullptr)
+    {
+        parent->detachChild(child);
+    }
 }
 
 void Widget::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -97,6 +162,18 @@ void Widget::update()
     }
 }
 
+void Widget::updateTransform() 
+{
+    // update widget transform
+    onUpdateTransform();
+
+    // update parents transforms
+    for (std::size_t i = 0; i < mParents.size(); ++i)
+    {
+        mParents[i]->updateTransform();
+    }
+}
+
 void Widget::setAnchor(Anchors::Flags anchor) 
 {
     if (anchor != mAnchor)
@@ -104,8 +181,8 @@ void Widget::setAnchor(Anchors::Flags anchor)
         // set new anchor
         mAnchor = anchor;
 
-        // update children transform
-        transformChildren();
+        // update transforms
+        updateTransform();
     }
 }
 
@@ -119,7 +196,7 @@ void Widget::onUpdate()
     // nothing here
 }
 
-void Widget::transformChildren() 
+void Widget::onUpdateTransform() 
 {
     // nothing here
 }
