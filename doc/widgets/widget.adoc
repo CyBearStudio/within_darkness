@@ -16,11 +16,15 @@
 
 * stores a vector of children widgets
 
+* stores a pointer to parent widget
+
 * can be drawn which also draw children
 
 * implements SFML Transformable, Drawable and NonCopyable base classes
 
 * defines base virtual methods for children
+
+* has static method to make parent
 
 .Widget class
 [source, C++]
@@ -31,14 +35,18 @@ public:
     Widget();
     // ... methods to manage the widget's children
     void update();
+    void updateTransform();
     void setAnchor(Anchors::Flags anchor);
+
+    static void make_parent(Widget* parent, Widget* child);
 
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
-    virtual void updateTransform();
+    virtual void onUpdateTransform();
     Anchors::Flags mAnchor;
+    Widget* mParent;
     std::vector<Widget*> mChildren;
 };
 ----
