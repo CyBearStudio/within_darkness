@@ -12,7 +12,8 @@ public:
     void setOffset(float offset);
 
 private:
-    virtual void transformChildren() override;
+    virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    virtual void onUpdateTransform() override;
     float mOffset;
 };
 

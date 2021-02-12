@@ -62,12 +62,14 @@ public:
     void updateTransform();
     void setAnchor(Anchors::Flags anchor);
     virtual sf::FloatRect getBoundingRect() const;
+    sf::Vector2f getGlobalPosition(Widget* parent);
 
 private:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
-    virtual void onUpdateTransform();
+    virtual void onUpdateTransform() = 0;
+    Widget* getFirstParentOnChain(Widget* parent);
     Anchors::Flags mAnchor;
     std::vector<Widget*> mParents;
     std::vector<Widget*> mChildren;

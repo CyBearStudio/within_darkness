@@ -191,6 +191,18 @@ sf::FloatRect Widget::getBoundingRect() const
     return sf::FloatRect();
 }
 
+sf::Vector2f Widget::getGlobalPosition(Widget* parent) 
+{
+    Widget* firstParent = getFirstParentOnChain(parent);
+
+    if (firstParent != nullptr)
+    {
+        return firstParent->getGlobalPosition() + getPosition();
+    }
+
+    return getPosition();
+}
+
 void Widget::onUpdate() 
 {
     // nothing here
@@ -199,4 +211,20 @@ void Widget::onUpdate()
 void Widget::onUpdateTransform() 
 {
     // nothing here
+}
+
+Widget* Widget::getFirstParentOnChain(Widget* parent) 
+{
+    if (parent != nullptr)
+    {
+        for (int i = 0; i < mParents.size(); ++i)
+        {
+            if (mParents[i] == parent || mParents[i]->getFirstParentOnChain() != nullptr)
+            {
+                return mParents[i];
+            }
+        }
+    }
+
+    return nullptr;
 }
