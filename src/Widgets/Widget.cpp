@@ -5,7 +5,7 @@
 
 namespace Anchors
 {
-    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag, float offset = 0.f) 
+    void anchor(const sf::RenderTarget& target, Widget& widget, Flags flag, float offset) 
     {
         // defining useful values
         sf::Vector2f targetSize(target.getSize());
@@ -85,54 +85,14 @@ void Widget::detachChild(Widget* child)
     updateTransform();
 }
 
-void Widget::addParent(Widget* parent) 
+Widget* Widget::getParent() 
 {
-    // adding parent to parents
-    mParents.push_back(child);
-
-    // updating transforms
-    parent->updateTransform();
+    return mParent;
 }
 
-void Widget::removeParent(Widget* parent) 
+void Widget::setParent(Widget* parent) 
 {
-    // finding parent if in parents and removing all its occurences
-    for (std::size_t i = 0; i < mParents.size(); ++i)
-    {
-        if(mParents[i] == child)
-        {
-            mParents.erase(mParents.begin() + i);
-        }
-    }
-
-    // updating transforms
-    parent->updateTransform();
-}
-
-void Widget::make_parent(Widget* parent, Widget* child) 
-{
-    if (parent != nullptr)
-    {
-        child->addParent(parent);
-    }
-
-    if (child != nullptr)
-    {
-        parent->attachChild(child);
-    }
-}
-
-void Widget::revoke_parent(Widget* parent, Widget* child) 
-{
-    if (parent != nullptr)
-    {
-        child->removeParent(parent);
-    }
-
-    if (child != nullptr)
-    {
-        parent->detachChild(child);
-    }
+    mParent = parent;
 }
 
 void Widget::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -167,11 +127,11 @@ void Widget::updateTransform()
     // update widget transform
     onUpdateTransform();
 
-    // update parents transforms
-    for (std::size_t i = 0; i < mParents.size(); ++i)
-    {
-        mParents[i]->updateTransform();
+    // update parent transforms
+    if(mParent != nullptr){
+        mParent->updateTransform();
     }
+    
 }
 
 void Widget::setAnchor(Anchors::Flags anchor) 
@@ -191,13 +151,11 @@ sf::FloatRect Widget::getBoundingRect() const
     return sf::FloatRect();
 }
 
-sf::Vector2f Widget::getGlobalPosition(Widget* parent) 
+sf::Vector2f Widget::getGlobalPosition() 
 {
-    Widget* firstParent = getFirstParentOnChain(parent);
-
-    if (firstParent != nullptr)
+    if (mParent != nullptr)
     {
-        return firstParent->getGlobalPosition() + getPosition();
+        return mParent->getGlobalPosition() + getPosition();
     }
 
     return getPosition();
@@ -211,20 +169,4 @@ void Widget::onUpdate()
 void Widget::onUpdateTransform() 
 {
     // nothing here
-}
-
-Widget* Widget::getFirstParentOnChain(Widget* parent) 
-{
-    if (parent != nullptr)
-    {
-        for (int i = 0; i < mParents.size(); ++i)
-        {
-            if (mParents[i] == parent || mParents[i]->getFirstParentOnChain() != nullptr)
-            {
-                return mParents[i];
-            }
-        }
-    }
-
-    return nullptr;
 }

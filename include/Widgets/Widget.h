@@ -49,29 +49,24 @@ private:
     void attachChild(Widget* child);
     void detachChild(Widget* child);
 
-    // ... methods to manage the widget's parents
-    void addParent(Widget* parent);
-    void removeParent(Widget* parent);
+    // ... methods to manage the widget's parent
+    Widget* getParent();
+    void setParent(Widget* parent);
     
 public:
-    // ... methods to manage parenting
-    static void make_parent(Widget* parent, Widget* child);
-    static void revoke_parent(Widget* parent, Widget* child);
-
     void update();
     void updateTransform();
     void setAnchor(Anchors::Flags anchor);
     virtual sf::FloatRect getBoundingRect() const;
-    sf::Vector2f getGlobalPosition(Widget* parent);
+    sf::Vector2f getGlobalPosition();
 
-private:
+protected:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
     virtual void onUpdateTransform() = 0;
-    Widget* getFirstParentOnChain(Widget* parent);
     Anchors::Flags mAnchor;
-    std::vector<Widget*> mParents;
+    Widget* mParent;
     std::vector<Widget*> mChildren;
 };
 
