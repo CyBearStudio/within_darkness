@@ -7,7 +7,7 @@ HBoxLayout::HBoxLayout(float offset, Anchors::Flags anchor) : Widget(anchor), mO
 
 sf::FloatRect HBoxLayout::getBoundingRect() const 
 {
-    sf::FloatRect boundingRect(); // creating FloatRect object to return
+    sf::FloatRect boundingRect; // creating FloatRect object to return
 
     if (!mChildren.empty())
     {

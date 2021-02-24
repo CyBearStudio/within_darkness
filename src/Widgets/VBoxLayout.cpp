@@ -7,11 +7,11 @@ VBoxLayout::VBoxLayout(float offset, Anchors::Flags anchor) : Widget(anchor), mO
 
 sf::FloatRect VBoxLayout::getBoundingRect() const 
 {
-    sf::FloatRect boundingRect(); // creating FloatRect object to return
+    sf::FloatRect boundingRect; // creating FloatRect object to return
 
     if (!mChildren.empty())
     {
-        boundingRect = mChildren[0]->getBoundingRect(); // starting with first widget
+        sf::FloatRect boundingRect; // starting with first widget
 
         for (int i = 1; i < mChildren.size(); ++i)
         {
