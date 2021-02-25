@@ -657,22 +657,32 @@ link:widgets/widget.adoc[widget.adoc]
 .Widget class
 [source, C++]
 ----
-class Widget
+class Widget : public sf::Transformable, public sf::Drawable, private sf::NonCopyable
 {
 public:
-    Widget();
+    Widget(Anchors::Flags anchor = Anchors::Default);
+
+private:
     // ... methods to manage the widget's children
+    void attachChild(Widget* child);
+    void detachChild(Widget* child);
+
+    // ... methods to manage the widget's parent
+    Widget* getParent();
+    void setParent(Widget* parent);
+    
+public:
     void update();
     void updateTransform();
     void setAnchor(Anchors::Flags anchor);
+    virtual sf::FloatRect getBoundingRect() const;
+    sf::Vector2f getGlobalPosition();
 
-    static void make_parent(Widget* parent, Widget* child);
-
-private:
+protected:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
     virtual void onDraw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
     virtual void onUpdate();
-    virtual void onUpdateTransform();
+    virtual void onUpdateTransform() = 0;
     Anchors::Flags mAnchor;
     Widget* mParent;
     std::vector<Widget*> mChildren;
